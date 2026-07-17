@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import GovukInit from "./components/govuk/GovukInit";
+import GovukInit from "@/app/components/govuk/GovukInit";
 import "./govuk.scss";
 import Script from "next/script";
 

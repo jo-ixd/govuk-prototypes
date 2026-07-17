@@ -1,6 +1,6 @@
-import Accordion from "./components/govuk/Accordion";
-import Details from "./components/govuk/Details";
-import SkipLink from "./components/govuk/SkipLink";
+import Accordion from "@/app/components/govuk/Accordion";
+import Details from "@/app/components/govuk/Details";
+import SkipLink from "@/app/components/govuk/SkipLink";
 
 export default function Home() {
   return (
