@@ -24,7 +24,7 @@ The goal is a production-ready foundation where:
 
 ---
 
-## Phase 0 — Install & wiring (foundation)
+## DONE - Phase 0 — Install & wiring (foundation)
 
 **Dependencies**
 - `npm i govuk-frontend`
@@ -61,14 +61,15 @@ The goal is a production-ready foundation where:
 
 ---
 
-## Phase 1 — Page template & shared helpers
+## DONE - Phase 1 — Page template & shared helpers
 
-- `app/page.tsx`: replace the Next demo with a minimal GOV.UK page shell — `govuk-skip-link`, `govuk-width-container`, `govuk-main-wrapper`, `govuk-grid-row` / `govuk-grid-column-two-thirds`, heading, plus one interactive component (Details/Accordion) to prove `initAll()` works.
-- Directory convention: `app/components/govuk/<Name>/<Name>.tsx` + `index.ts` barrel, with a top-level `app/components/govuk/index.ts` re-export.
+- `app/page.tsx`: replace the Next demo with a minimal GOV.UK page shell — `govuk-skip-link`, `govuk-width-container`, `govuk-main-wrapper`, `govuk-grid-row` / `govuk-grid-column-two-thirds`, heading, plus one interactive component to prove `initAll()` works.
+  - **Correction:** Details is CSS-only in current govuk-frontend (native `<details>`, no `.mjs` module under `node_modules/govuk-frontend/dist/govuk/components/details/`), so it doesn't exercise `initAll()` — the page looked and behaved identically even with `GovukInit`/`initAll()` silently broken. Fixed by building `Accordion.tsx` (pulled forward from Phase 2e — it does ship `accordion.mjs` and needs `data-module="govuk-accordion"` + `initAll()`) and rendering it on the page alongside Details. Details is kept as a second, static (non-JS) component for contrast.
+- Directory convention: flat files, no subfolders or `index.ts` barrels — `app/components/govuk/<Name>.tsx`, `export default function <Name>(...)`, imported directly (e.g. `import Details from "./components/govuk/Details"`).
 - Shared helpers — `app/components/govuk/types.ts`:
-  - `TextOrHtml` = `{ text: string } | { html: React.ReactNode }` + `renderTextOrHtml()` (mirrors the njk `text`/`html`/`caller` pattern).
+  - `TextOrHtml` = `{ text: string } | { html: React.ReactNode }` (mirrors the njk `text`/`html`/`caller` pattern). No render helper — each component inlines `"html" in props ? props.html : props.text`.
   - Common prop bits: `classes?`, `attributes?: Record<string,string>`, `id?`.
-  - `attrs()` helper to spread `attributes` + merge `classes`.
+  - No shared class/attrs helper — each component merges `classes` inline (`` `govuk-<name> ${classes}` `` when set, else the base class) and spreads `attributes` directly in JSX.
 
 **Verification:** `tsc`/`lint` clean; optional dev server shows a styled page with a working interactive component.
 
@@ -76,11 +77,19 @@ The goal is a production-ready foundation where:
 
 ## Phase 2 — Recreate the 35 Design System components
 
+**Code conventions (apply to every component in this phase):**
+- **Flat files, no barrels.** `app/components/govuk/<Name>.tsx`, `export default function <Name>(...)`. No per-component subfolder, no `index.ts` re-export (not even a top-level barrel) — always import components by their direct path.
+- **No shared render/attrs helper functions.** Prefer plain inline expressions over a wrapping utility, even at the cost of a little repetition across components:
+  - Text/html choice: inline `"html" in props ? props.html : props.text` (using the shared `TextOrHtml` type) — not a `renderTextOrHtml()`-style helper.
+  - Class merging: inline `` classes ? `govuk-<name> ${classes}` : "govuk-<name>" `` directly in the `className` prop — not an `attrs()`-style helper.
+  - Attributes: spread `{...attributes}` directly in JSX alongside `className`, rather than merging it into a returned props object.
+- Only `TextOrHtml` and `CommonProps` (`classes?`, `attributes?`, `id?`) are shared, from `app/components/govuk/types.ts`.
+
 For **each** component the executing agent must:
 1. Read `node_modules/govuk-frontend/dist/govuk/components/<name>/template.njk` + `macro-options.mjs` for exact markup and the full prop list/defaults.
 2. Cross-check states/examples at `https://design-system.service.gov.uk/components/<name>/`.
-3. Implement `app/components/govuk/<Name>/<Name>.tsx` — typed React (server) component, props mirror macro-options, support every documented state (hint, label, errorMessage, disabled, prefixes/suffixes, item arrays…).
-4. Reuse `TextOrHtml`/`renderTextOrHtml`/`attrs`; compose form components from shared `Label`/`Hint`/`ErrorMessage`/`Fieldset`/`FormGroup` (built first in 2b), exactly as the njk macros do.
+3. Implement `app/components/govuk/<Name>.tsx` per the code conventions above — typed React (server) component, props mirror macro-options, support every documented state (hint, label, errorMessage, disabled, prefixes/suffixes, item arrays…).
+4. Compose form components from shared `Label`/`Hint`/`ErrorMessage`/`Fieldset`/`FormGroup` (built first in 2b), exactly as the njk macros do — these are the one exception to "no shared abstractions," since the njk macros themselves compose them the same way.
 5. Class names byte-for-byte identical to njk output — never hand-roll BEM.
 6. JS-driven components (Accordion, Character count, Tabs, Notification banner, Cookie banner, Exit this page, Password input, Error summary focus, Header/Service nav mobile menu) just emit the correct `data-module="govuk-*"` attribute — the global `initAll()` from Phase 0 wires them up; no per-component JS.
 
@@ -89,9 +98,9 @@ For **each** component the executing agent must:
 - **2b — Form building blocks & inputs:** Label, Hint, Error message, Fieldset, FormGroup wrapper first; then Text input, Textarea, Select, Checkboxes, Radios, Date input, File upload, Character count, Password input, Error summary. (Centralise the shared `govuk-form-group` / `--error` / `describedBy` hint+error id wiring so every input composes it identically.)
 - **2c — Navigation:** Header, Footer, Service navigation, Breadcrumbs, Back link, Pagination, Tabs.
 - **2d — Feedback & status:** Notification banner, Cookie banner, Task list, Summary list.
-- **2e — Content & layout:** Accordion, Table, Exit this page.
+- **2e — Content & layout:** Table, Exit this page. (Accordion was built early, in Phase 1, to prove `initAll()`.)
 
-**Per-sub-phase verification:** `npx tsc --noEmit` + `npm run lint` clean; register each new component in `app/components/govuk/index.ts`; optionally render it in each state on a scratch `app/kitchen-sink/page.tsx` for visual review.
+**Per-sub-phase verification:** `npx tsc --noEmit` + `npm run lint` clean; optionally render each new component in each state on a scratch `app/kitchen-sink/page.tsx` for visual review.
 
 ---
 
@@ -105,8 +114,8 @@ For **each** component the executing agent must:
 | `app/govuk.scss` | new — `@use "govuk-frontend/dist/govuk" with ($govuk-assets-path: "/assets/")` |
 | `app/layout.tsx` | govuk-template classes, js-enabled inline script, manifest/favicon links, `<GovukInit/>`, import `govuk.scss` |
 | `app/components/govuk/GovukInit.tsx` | new — client `initAll()` on mount |
-| `app/components/govuk/types.ts` | new — `TextOrHtml`, `renderTextOrHtml`, `attrs` helpers |
-| `app/components/govuk/<Name>/*` | new — one dir per component (Phase 2) |
+| `app/components/govuk/types.ts` | new — `TextOrHtml`, `CommonProps` |
+| `app/components/govuk/<Name>.tsx` | new — one flat file per component, `export default function` (Phase 2) |
 | `app/page.tsx` | replace demo with GOV.UK page shell |
 
 ## Overall verification

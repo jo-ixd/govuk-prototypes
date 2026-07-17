@@ -35,7 +35,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="govuk-template">
       <body className="govuk-template__body">
-        <Script strategy="beforeInteractive">
+        <Script id="govuk-js-enabled" strategy="beforeInteractive">
           {"document.body.className += ' js-enabled' + ('noModule' in HTMLScriptElement.prototype ? ' govuk-frontend-supported' : '');"}
         </Script>
         <GovukInit />
