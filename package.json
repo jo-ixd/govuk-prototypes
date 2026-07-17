@@ -4,22 +4,25 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "node scripts/copy-govuk-assets.mjs && next build",
     "start": "next start",
     "lint": "eslint"
   },
   "dependencies": {
+    "govuk-frontend": "^6.4.0",
     "next": "16.2.10",
     "react": "19.2.4",
     "react-dom": "19.2.4"
   },
   "devDependencies": {
+    "@types/govuk-frontend": "^5.11.0",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "babel-plugin-react-compiler": "1.0.0",
     "eslint": "^9",
     "eslint-config-next": "16.2.10",
+    "sass": "^1.101.0",
     "typescript": "^5"
   }
 }
