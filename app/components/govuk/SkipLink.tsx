@@ -1,11 +1,10 @@
 import { type CommonProps, type TextOrHtml } from "./types";
 
-export type SkipLinkProps = CommonProps &
-  TextOrHtml & {
-    href?: string;
-  };
+export interface SkipLinkProps extends CommonProps, TextOrHtml {
+  href?: string;
+}
 
-export default function SkipLink({ href = "#content", classes, attributes, id, ...rest }: SkipLinkProps) {
+export default function SkipLink({ href = "#content", classes, attributes, id, text, html }: SkipLinkProps) {
   return (
     <a
       href={href}
@@ -14,7 +13,7 @@ export default function SkipLink({ href = "#content", classes, attributes, id, .
       {...attributes}
       data-module="govuk-skip-link"
     >
-      {"html" in rest ? rest.html : rest.text}
+      {html ? html : text}
     </a>
   );
 }

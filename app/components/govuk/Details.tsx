@@ -1,16 +1,13 @@
 import { type CommonProps, type TextOrHtml } from "./types";
 
-export type DetailsProps = CommonProps & {
+export interface DetailsProps extends CommonProps, TextOrHtml {
   open?: boolean;
-} & (
-    | { summaryText: string; summaryHtml?: never }
-    | { summaryHtml: React.ReactNode; summaryText?: never }
-  ) &
-  TextOrHtml;
+  summaryText: string | null;
+  summaryHtml?: React.ReactNode;
+}
 
 export default function Details(props: DetailsProps) {
-  const { classes, attributes, id, open } = props;
-  const summary = "summaryHtml" in props ? props.summaryHtml : props.summaryText;
+  const { classes, attributes, id, open, summaryText, summaryHtml, text, html } = props;
 
   return (
     <details
@@ -20,9 +17,11 @@ export default function Details(props: DetailsProps) {
       open={open}
     >
       <summary className="govuk-details__summary">
-        <span className="govuk-details__summary-text">{summary}</span>
+        <span className="govuk-details__summary-text">
+          {summaryHtml ? summaryHtml : summaryText}
+        </span>
       </summary>
-      <div className="govuk-details__text">{"html" in props ? props.html : props.text}</div>
+      <div className="govuk-details__text">{html ? html : text}</div>
     </details>
   );
 }

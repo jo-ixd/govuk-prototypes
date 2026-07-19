@@ -1,6 +1,9 @@
 import type { ReactNode } from "react";
 
-export type TextOrHtml = { text: string; html?: never } | { html: ReactNode; text?: never };
+export interface TextOrHtml {
+  text: string | null;
+  html?: ReactNode;
+}
 
 export interface CommonProps {
   classes?: string;
