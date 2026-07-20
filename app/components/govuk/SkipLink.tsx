@@ -1,5 +1,6 @@
 import type { CommonProps, TextOrHtml } from "@/app/components/govuk/types";
 import { govukClasses } from "@/app/components/govuk/utils";
+import { useId } from "react";
 
 export interface SkipLinkProps extends CommonProps, TextOrHtml {
   href?: string;
@@ -9,10 +10,11 @@ export default function SkipLink({
   href = "#content",
   classes,
   attributes,
-  id,
   text,
   html,
 }: SkipLinkProps) {
+  const id = useId();
+
   return (
     <a
       href={href}

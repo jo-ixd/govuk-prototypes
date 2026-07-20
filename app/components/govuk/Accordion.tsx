@@ -1,5 +1,6 @@
 import type { CommonProps, TextOrHtml } from "@/app/components/govuk/types";
 import { govukClasses } from "@/app/components/govuk/utils";
+import { useId } from "react";
 
 interface AccordionItem {
   heading: TextOrHtml;
@@ -17,12 +18,12 @@ export interface AccordionProps extends CommonProps {
 export default function Accordion({
   classes,
   attributes,
-  id,
   headingLevel = 2,
   rememberExpanded,
   items,
 }: AccordionProps) {
   const Heading = `h${headingLevel}` as const;
+  const id = useId();
 
   return (
     <div

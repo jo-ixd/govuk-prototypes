@@ -18,7 +18,6 @@ export default function Home() {
               </p>
 
               <Accordion
-                id="proof-accordion"
                 items={[
                   {
                     heading: { text: "Section A" },
