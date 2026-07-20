@@ -51,7 +51,7 @@ export default function Accordion({
                 {item.heading.html ?? item.heading.text}
               </span>
             </Heading>
-            {item.summary && (
+            {(item.summary?.html ?? item.summary?.text) && (
               <div
                 className="govuk-accordion__section-summary govuk-body"
                 id={`${id}-summary-${index + 1}`}
