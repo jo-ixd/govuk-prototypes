@@ -46,7 +46,7 @@ export default function Accordion({
                 className="govuk-accordion__section-button"
                 id={`${id}-heading-${index + 1}`}
               >
-                {item.heading.html ?? item.heading.text ?? ""}
+                {item.heading.html ?? item.heading.text}
               </span>
             </Heading>
             {item.summary && (
@@ -54,7 +54,7 @@ export default function Accordion({
                 className="govuk-accordion__section-summary govuk-body"
                 id={`${id}-summary-${index + 1}`}
               >
-                {item.summary.html ?? item.summary.text ?? ""}
+                {item.summary.html ?? item.summary.text}
               </div>
             )}
           </div>
@@ -65,7 +65,7 @@ export default function Accordion({
             {item.content.html ? (
               item.content.html
             ) : (
-              <p className="govuk-body">{item.content.text ?? ""}</p>
+              <p className="govuk-body">{item.content.text}</p>
             )}
           </div>
         </div>

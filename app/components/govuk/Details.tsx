@@ -25,10 +25,10 @@ export default function Details({
     >
       <summary className="govuk-details__summary">
         <span className="govuk-details__summary-text">
-          {summaryHtml ?? summaryText ?? ""}
+          {summaryHtml ?? summaryText}
         </span>
       </summary>
-      <div className="govuk-details__text">{html ?? text ?? ""}</div>
+      <div className="govuk-details__text">{html ?? text}</div>
     </details>
   );
 }
