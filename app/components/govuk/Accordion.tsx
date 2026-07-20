@@ -1,19 +1,19 @@
+import { useId } from "react";
 import type { CommonProps, TextOrHtml } from "@/app/components/govuk/types";
 import { govukClasses } from "@/app/components/govuk/utils";
-import { useId } from "react";
 
-interface AccordionItem {
+type AccordionItem = {
   heading: TextOrHtml;
   summary?: TextOrHtml;
   content: TextOrHtml;
   expanded?: boolean;
-}
+};
 
-export interface AccordionProps extends CommonProps {
+export type AccordionProps = CommonProps & {
   headingLevel?: 1 | 2 | 3 | 4 | 5 | 6;
   rememberExpanded?: boolean;
   items: AccordionItem[];
-}
+};
 
 export default function Accordion({
   classes,

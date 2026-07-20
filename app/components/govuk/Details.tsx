@@ -1,12 +1,12 @@
 import { useId, type ReactNode } from "react";
-import type { CommonProps, TextOrHtml } from "@/app/components/govuk/types";
+import type { CommonPropsTextOrHtml } from "@/app/components/govuk/types";
 import { govukClasses } from "@/app/components/govuk/utils";
 
-export interface DetailsProps extends CommonProps, TextOrHtml {
+export type DetailsProps = CommonPropsTextOrHtml & {
   open?: boolean;
   summaryText?: string;
   summaryHtml?: ReactNode;
-}
+};
 
 export default function Details({
   classes,
