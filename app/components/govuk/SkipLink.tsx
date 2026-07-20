@@ -1,20 +1,29 @@
-import { type CommonProps, type TextOrHtml } from "./types";
+import { useId } from "react";
+import type { CommonPropsTextOrHtml } from "@/app/components/govuk/types";
+import { govukClasses } from "@/app/components/govuk/utils";
 
-export type SkipLinkProps = CommonProps &
-  TextOrHtml & {
-    href?: string;
-  };
+export type SkipLinkProps = CommonPropsTextOrHtml & {
+  href?: string;
+};
 
-export default function SkipLink({ href = "#content", classes, attributes, id, ...rest }: SkipLinkProps) {
+export default function SkipLink({
+  href = "#content",
+  classes,
+  attributes,
+  text,
+  html,
+}: SkipLinkProps) {
+  const id = useId();
+
   return (
     <a
       href={href}
       id={id}
-      className={classes ? `govuk-skip-link ${classes}` : "govuk-skip-link"}
+      className={govukClasses("govuk-skip-link", classes)}
       {...attributes}
       data-module="govuk-skip-link"
     >
-      {"html" in rest ? rest.html : rest.text}
+      {html ?? text}
     </a>
   );
 }

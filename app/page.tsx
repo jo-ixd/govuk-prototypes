@@ -11,22 +11,25 @@ export default function Home() {
         <main className="govuk-main-wrapper" id="content">
           <div className="govuk-grid-row">
             <div className="govuk-grid-column-two-thirds">
-              <h1 className="govuk-heading-xl">GOV.UK Frontend in Next.js</h1>
+              <h1 className="govuk-heading-xl">Gs</h1>
               <p className="govuk-body">
-                This page proves the GOV.UK styles, fonts and JavaScript-driven
+                This page proves the styles, fonts and JavaScript-driven
                 components are wired up correctly.
               </p>
 
               <Accordion
-                id="proof-accordion"
                 items={[
                   {
                     heading: { text: "Section A" },
-                    text: "This section only shows/hides on click if govuk-frontend's initAll() has run.",
+                    content: {
+                      text: "This section only shows/hides on click if govuk-frontend's initAll() has run.",
+                    },
                   },
                   {
                     heading: { text: "Section B" },
-                    text: "If GovukInit were broken, both sections here would render permanently open with no toggle button.",
+                    content: {
+                      text: "If GovukInit were broken, both sections here would render permanently open with no toggle button.",
+                    },
                   },
                 ]}
               />

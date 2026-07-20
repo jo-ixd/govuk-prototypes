@@ -1,28 +1,37 @@
-import { type CommonProps, type TextOrHtml } from "./types";
+import { useId, type ReactNode } from "react";
+import type { CommonPropsTextOrHtml } from "@/app/components/govuk/types";
+import { govukClasses } from "@/app/components/govuk/utils";
 
-export type DetailsProps = CommonProps & {
+export type DetailsProps = CommonPropsTextOrHtml & {
   open?: boolean;
-} & (
-    | { summaryText: string; summaryHtml?: never }
-    | { summaryHtml: React.ReactNode; summaryText?: never }
-  ) &
-  TextOrHtml;
+  summaryText?: string;
+  summaryHtml?: ReactNode;
+};
 
-export default function Details(props: DetailsProps) {
-  const { classes, attributes, id, open } = props;
-  const summary = "summaryHtml" in props ? props.summaryHtml : props.summaryText;
+export default function Details({
+  classes,
+  attributes,
+  open,
+  summaryText,
+  summaryHtml,
+  text,
+  html,
+}: DetailsProps) {
+  const id = useId();
 
   return (
     <details
       id={id}
-      className={classes ? `govuk-details ${classes}` : "govuk-details"}
+      className={govukClasses("govuk-details", classes)}
       {...attributes}
       open={open}
     >
       <summary className="govuk-details__summary">
-        <span className="govuk-details__summary-text">{summary}</span>
+        <span className="govuk-details__summary-text">
+          {summaryHtml ?? summaryText}
+        </span>
       </summary>
-      <div className="govuk-details__text">{"html" in props ? props.html : props.text}</div>
+      <div className="govuk-details__text">{html ?? text}</div>
     </details>
   );
 }
