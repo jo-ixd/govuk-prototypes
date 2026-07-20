@@ -4,7 +4,14 @@ export interface SkipLinkProps extends CommonProps, TextOrHtml {
   href?: string;
 }
 
-export default function SkipLink({ href = "#content", classes, attributes, id, text, html }: SkipLinkProps) {
+export default function SkipLink({
+  href = "#content",
+  classes,
+  attributes,
+  id,
+  text,
+  html,
+}: SkipLinkProps) {
   return (
     <a
       href={href}
@@ -13,7 +20,7 @@ export default function SkipLink({ href = "#content", classes, attributes, id, t
       {...attributes}
       data-module="govuk-skip-link"
     >
-      {html ? html : text}
+      {html ?? text}
     </a>
   );
 }

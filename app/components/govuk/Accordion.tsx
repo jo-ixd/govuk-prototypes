@@ -1,8 +1,9 @@
 import { type CommonProps, type TextOrHtml } from "./types";
 
-interface AccordionItem extends TextOrHtml {
+interface AccordionItem {
   heading: TextOrHtml;
   summary?: TextOrHtml;
+  content: TextOrHtml;
   expanded?: boolean;
 }
 
@@ -12,15 +13,14 @@ export interface AccordionProps extends CommonProps {
   items: AccordionItem[];
 }
 
-export default function Accordion(props: AccordionProps) {
-  const {
-    classes,
-    attributes,
-    id,
-    headingLevel = 2,
-    rememberExpanded,
-    items,
-  } = props;
+export default function Accordion({
+  classes,
+  attributes,
+  id,
+  headingLevel = 2,
+  rememberExpanded,
+  items,
+}: AccordionProps) {
   const Heading = `h${headingLevel}` as const;
 
   return (
@@ -46,7 +46,7 @@ export default function Accordion(props: AccordionProps) {
                 className="govuk-accordion__section-button"
                 id={`${id}-heading-${index + 1}`}
               >
-                {item.heading.html ? item.heading.html : item.heading.text}
+                {item.heading.html ?? item.heading.text ?? ""}
               </span>
             </Heading>
             {item.summary && (
@@ -54,7 +54,7 @@ export default function Accordion(props: AccordionProps) {
                 className="govuk-accordion__section-summary govuk-body"
                 id={`${id}-summary-${index + 1}`}
               >
-                {item.summary.html ? item.summary.html : item.summary.text}
+                {item.summary.html ?? item.summary.text ?? ""}
               </div>
             )}
           </div>
@@ -62,7 +62,11 @@ export default function Accordion(props: AccordionProps) {
             id={`${id}-content-${index + 1}`}
             className="govuk-accordion__section-content"
           >
-            {item.html ? item.html : <p className="govuk-body">{item.text}</p>}
+            {item.content.html ? (
+              item.content.html
+            ) : (
+              <p className="govuk-body">{item.content.text ?? ""}</p>
+            )}
           </div>
         </div>
       ))}
