@@ -1,5 +1,5 @@
-import { type CommonProps, type TextOrHtml } from "./types";
-import { govukClasses } from "./utils";
+import type { CommonProps, TextOrHtml } from "@/app/components/govuk/types";
+import { govukClasses } from "@/app/components/govuk/utils";
 
 export interface SkipLinkProps extends CommonProps, TextOrHtml {
   href?: string;
