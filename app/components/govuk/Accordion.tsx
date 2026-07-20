@@ -64,9 +64,7 @@ export default function Accordion({
             id={`${id}-content-${index + 1}`}
             className="govuk-accordion__section-content"
           >
-            {item.content.html ? (
-              item.content.html
-            ) : (
+            {item.content.html ?? (
               <p className="govuk-body">{item.content.text}</p>
             )}
           </div>
