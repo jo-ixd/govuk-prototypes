@@ -1,4 +1,5 @@
 import { type CommonProps, type TextOrHtml } from "./types";
+import { govukClasses } from "./utils";
 
 interface AccordionItem {
   heading: TextOrHtml;
@@ -25,7 +26,7 @@ export default function Accordion({
 
   return (
     <div
-      className={classes ? `govuk-accordion ${classes}` : "govuk-accordion"}
+      className={govukClasses("govuk-accordion", classes)}
       data-module="govuk-accordion"
       id={id}
       data-remember-expanded={rememberExpanded}

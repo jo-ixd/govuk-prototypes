@@ -1,9 +1,11 @@
+import { type ReactNode } from "react";
 import { type CommonProps, type TextOrHtml } from "./types";
+import { govukClasses } from "./utils";
 
 export interface DetailsProps extends CommonProps, TextOrHtml {
   open?: boolean;
   summaryText?: string;
-  summaryHtml?: React.ReactNode;
+  summaryHtml?: ReactNode;
 }
 
 export default function Details({
@@ -19,7 +21,7 @@ export default function Details({
   return (
     <details
       id={id}
-      className={classes ? `govuk-details ${classes}` : "govuk-details"}
+      className={govukClasses("govuk-details", classes)}
       {...attributes}
       open={open}
     >
