@@ -1,6 +1,4 @@
-import Accordion from "@/app/components/govuk/Accordion";
-import Details from "@/app/components/govuk/Details";
-import SkipLink from "@/app/components/govuk/SkipLink";
+import { Accordion, Details, SkipLink } from "govuk-prototype";
 
 export default function Home() {
   return (

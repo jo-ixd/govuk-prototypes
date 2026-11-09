@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import GovukInit from "@/app/components/govuk/GovukInit";
+import GovukInit from "govuk-prototype";
 import "./govuk.scss";
 import Script from "next/script";
 
@@ -36,7 +36,9 @@ export default function RootLayout({
     <html lang="en" className="govuk-template">
       <body className="govuk-template__body" suppressHydrationWarning>
         <Script id="govuk-js-enabled" strategy="beforeInteractive">
-          {"document.body.className += ' js-enabled' + ('noModule' in HTMLScriptElement.prototype ? ' govuk-frontend-supported' : '');"}
+          {
+            "document.body.className += ' js-enabled' + ('noModule' in HTMLScriptElement.prototype ? ' govuk-frontend-supported' : '');"
+          }
         </Script>
         <GovukInit />
         {children}
