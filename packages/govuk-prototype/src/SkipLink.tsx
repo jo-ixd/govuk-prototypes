@@ -1,6 +1,6 @@
 import { useId } from "react";
-import type { CommonPropsTextOrHtml } from "@/app/components/govuk/types";
-import { govukClasses } from "@/app/components/govuk/utils";
+import type { CommonPropsTextOrHtml } from "./types";
+import { govukClasses } from "./utils";
 
 export type SkipLinkProps = CommonPropsTextOrHtml & {
   href?: string;

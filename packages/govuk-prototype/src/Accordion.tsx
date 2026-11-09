@@ -1,6 +1,6 @@
 import { useId } from "react";
-import type { CommonProps, TextOrHtml } from "@/app/components/govuk/types";
-import { govukClasses } from "@/app/components/govuk/utils";
+import type { CommonProps, TextOrHtml } from "./types";
+import { govukClasses } from "./utils";
 
 type AccordionItem = {
   heading: TextOrHtml;

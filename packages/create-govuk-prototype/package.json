@@ -1,0 +1,9 @@
+{
+  "name": "create-govuk-prototype",
+  "version": "0.1.0",
+  "description": "Scaffold a new GOV.UK prototype app. Not implemented yet — ships in a later phase.",
+  "private": true,
+  "bin": {
+    "create-govuk-prototype": "bin/create-govuk-prototype.mjs"
+  }
+}

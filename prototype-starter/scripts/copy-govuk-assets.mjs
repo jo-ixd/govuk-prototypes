@@ -1,7 +1,13 @@
 import { cp } from "node:fs/promises";
+import { createRequire } from "node:module";
 import path from "node:path";
 
-const srcRoot = path.join(`node_modules/govuk-frontend/dist/govuk/assets`);
+const require = createRequire(import.meta.url);
+
+const srcRoot = path.join(
+  path.dirname(require.resolve("govuk-frontend/package.json")),
+  "dist/govuk/assets",
+);
 const destRoot = path.join(`public/assets`);
 
 await cp(path.join(srcRoot, "images"), path.join(destRoot, "images"), {
@@ -15,5 +21,5 @@ await cp(path.join(srcRoot, "fonts"), path.join(destRoot, "fonts"), {
 await cp(
   path.join(srcRoot, "manifest.json"),
   path.join(destRoot, "manifest.json"),
-  { recursive: true }
+  { recursive: true },
 );
