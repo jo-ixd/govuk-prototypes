@@ -24,3 +24,7 @@ This version has breaking changes — APIs, conventions, and file structure may 
 
 - Titles follow the same plain english conventional commit style as commit messages, e.g. "feat: add date input component".
 - Descriptions are written in simple plain english and explain what was done (the change itself), not what you did.
+
+## Before opening a pull request
+
+Before opening a pull request, it is worth re-reviewing the code in a fresh context — a new session looking at the diff cold, as if someone else wrote it. Ask it to hunt for bugs and do a security pass on the changes. This is a recommendation for the human driving the agent, not something the agent does automatically.

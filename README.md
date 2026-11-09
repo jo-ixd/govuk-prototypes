@@ -1,36 +1,36 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# GOV.UK Prototypes
 
-## Getting Started
+A Next.js port of the GOV.UK Prototype Kit. **Pre-alpha** — the end goal is
+`npm create govuk-prototype`: one command to scaffold a working GOV.UK
+prototype app with Next.js.
 
-First, run the development server:
+## Package layout
 
-```bash
+| Path                               | What it is                                                          |
+| ---------------------------------- | ------------------------------------------------------------------- |
+| `prototype-starter/`               | The Next.js app the prototype kit produces                          |
+| `packages/govuk-prototype/`        | Core runtime package: GOV.UK components, shared types and helpers   |
+| `packages/create-govuk-prototype/` | `npm create govuk-prototype` scaffolder (stub, not implemented yet) |
+
+## Getting started
+
+```sh
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+This runs the Next.js app in `prototype-starter/` at `http://localhost:3000`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Checks
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+All checks run from the repo root:
 
-## Learn More
+```sh
+npm run lint          # eslint across the app and packages
+npm run typecheck     # tsc for prototype-starter (and through imports, packages)
+npm run test          # vitest unit tests
+npm run format:check  # prettier check
+npm run build         # production build of prototype-starter
+```
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+These are the checks enforced by CI on every pull request.
