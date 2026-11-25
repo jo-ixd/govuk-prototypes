@@ -6,7 +6,7 @@ export type TextOrHtml =
 
 export type CommonProps = {
   classes?: string;
-  attributes?: Record<string, string>;
+  attributes?: Record<string, string | number | boolean>;
 }
 
 export type CommonPropsTextOrHtml = CommonProps & TextOrHtml;
