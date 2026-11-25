@@ -7,12 +7,13 @@ export default defineConfig({
   test: {
     environment: "jsdom",
     setupFiles: ["tests/setup.ts"],
-    // Component, helper and form tests are colocated as *.test.ts(x)
-    // next to the files they cover. Playwright specs live in tests/e2e.
-    include: ["app/**/*.test.{ts,tsx}"],
+    // Unit tests live under tests/unit, mirroring the app directory they
+    // cover. Playwright specs live in tests/e2e.
+    include: ["tests/unit/**/*.test.{ts,tsx}"],
     coverage: {
       provider: "v8",
       reporter: ["text", "html"],
+      reportsDirectory: ".artifacts/coverage",
       include: [
         "app/components/govuk/**",
         "app/playground/example-service/**/*.{ts,tsx}",

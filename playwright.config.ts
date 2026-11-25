@@ -5,11 +5,12 @@ const baseURL = `http://localhost:${port}`;
 
 export default defineConfig({
   testDir: "tests/e2e",
+  outputDir: ".artifacts/test-results",
   fullyParallel: true,
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 2 : 0,
   workers: process.env.CI ? 2 : undefined,
-  reporter: process.env.CI ? "github" : "html",
+  reporter: process.env.CI ? "github" : [["html", { outputFolder: ".artifacts/playwright-report" }]],
   use: {
     baseURL,
     trace: "on-first-retry",
