@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import BackLink from "@/app/components/govuk/BackLink";
 import Tag from "@/app/components/govuk/Tag";
 import Example from "@/app/playground/_components/Example";
-import TagPlayground from "./TagPlayground";
+import TagPlayground from "@/app/playground/components/tag/TagPlayground";
 
 const COLOUR_VARIANTS: { text: string; classes?: string }[] = [
   { text: "Alpha" },

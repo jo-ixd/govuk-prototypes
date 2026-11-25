@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import BackLink from "@/app/components/govuk/BackLink";
 import CharacterCount from "@/app/components/govuk/CharacterCount";
 import Example from "@/app/playground/_components/Example";
-import CharacterCountPlayground from "./CharacterCountPlayground";
+import CharacterCountPlayground from "@/app/playground/components/character-count/CharacterCountPlayground";
 
 export const metadata: Metadata = {
   title: "Character count - GOV.UK Playground",

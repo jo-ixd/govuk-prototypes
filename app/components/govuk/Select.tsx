@@ -72,11 +72,16 @@ export default function Select({
   // Mirrors the njk logic: an item is selected when it says so, or when no
   // explicit `selected` flag was given and its effective value (value, or the
   // option text when value is omitted) matches the top-level `value` param.
+  // Both sides are stringified so numeric item values can match too.
   const isSelected = (item: SelectItem): boolean => {
     if (item.selected === true) return true;
     if (item.selected === false) return false;
     const effectiveValue = item.value ?? item.text ?? null;
-    return selectedValue !== null && effectiveValue === selectedValue;
+    return (
+      selectedValue !== null &&
+      effectiveValue !== null &&
+      String(effectiveValue) === String(selectedValue)
+    );
   };
 
   // React warns when `selected` is set on individual options, so the initially
@@ -126,7 +131,9 @@ export default function Select({
         name={name}
         disabled={disabled}
         aria-describedby={describedByIds ?? undefined}
-        defaultValue={selectedDefaultValue === null ? undefined : selectedDefaultValue}
+        {...(selectedDefaultValue !== null
+          ? { defaultValue: selectedDefaultValue }
+          : {})}
         {...attributes}
       >
         {items.map(

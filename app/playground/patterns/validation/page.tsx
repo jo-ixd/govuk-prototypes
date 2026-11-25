@@ -4,7 +4,7 @@ import Button from "@/app/components/govuk/Button";
 import ErrorSummary from "@/app/components/govuk/ErrorSummary";
 import Input from "@/app/components/govuk/Input";
 import Example from "@/app/playground/_components/Example";
-import ValidationDemo from "./ValidationDemo";
+import ValidationDemo from "@/app/playground/patterns/validation/ValidationDemo";
 
 export const metadata: Metadata = {
   title: "Recover from validation errors - GOV.UK Patterns",

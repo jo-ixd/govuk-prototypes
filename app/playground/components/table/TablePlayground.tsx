@@ -63,7 +63,7 @@ export default function TablePlayground() {
         <Table
           caption={caption}
           captionClasses="govuk-table__caption--m"
-          head={showHead ? head : undefined}
+          {...(showHead ? { head } : {})}
           firstCellIsHeader={firstCellIsHeader}
           rows={rows}
         />

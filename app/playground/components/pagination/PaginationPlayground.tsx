@@ -78,20 +78,18 @@ export default function PaginationPlayground() {
       preview={
         <Pagination
           landmarkLabel={landmarkLabel}
-          previous={
-            showPrevious && current > 1
-              ? {
+          {...(showPrevious && current > 1
+            ? {
+                previous: {
                   href: `/page/${current - 1}`,
-                  labelText: previousLabelText || undefined,
-                }
-              : undefined
-          }
-          next={
-            showNext && current < TOTAL_PAGES
-              ? { href: `/page/${current + 1}` }
-              : undefined
-          }
-          items={blockLevelOnly ? undefined : buildItems(current)}
+                  ...(previousLabelText ? { labelText: previousLabelText } : {}),
+                },
+              }
+            : {})}
+          {...(showNext && current < TOTAL_PAGES
+            ? { next: { href: `/page/${current + 1}` } }
+            : {})}
+          {...(blockLevelOnly ? {} : { items: buildItems(current) })}
         />
       }
     />

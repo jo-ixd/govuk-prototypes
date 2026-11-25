@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import BackLink from "@/app/components/govuk/BackLink";
 import CookieBanner from "@/app/components/govuk/CookieBanner";
 import Example from "@/app/playground/_components/Example";
-import CookieBannerPlayground from "./CookieBannerPlayground";
+import CookieBannerPlayground from "@/app/playground/components/cookie-banner/CookieBannerPlayground";
 
 export const metadata: Metadata = {
   title: "CookieBanner - GOV.UK Playground",

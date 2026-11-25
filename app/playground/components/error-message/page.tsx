@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import BackLink from "@/app/components/govuk/BackLink";
 import ErrorMessage from "@/app/components/govuk/ErrorMessage";
 import Example from "@/app/playground/_components/Example";
-import ErrorMessagePlayground from "./ErrorMessagePlayground";
+import ErrorMessagePlayground from "@/app/playground/components/error-message/ErrorMessagePlayground";
 
 export const metadata: Metadata = { title: "Error message - GOV.UK Playground" };
 

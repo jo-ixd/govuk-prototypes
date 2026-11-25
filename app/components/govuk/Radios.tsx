@@ -85,6 +85,10 @@ export default function Radios({
   const renderRadioItem = (item: RadiosItem, index: number) => {
     const itemIndex = index + 1;
 
+    if (!item) {
+      return null;
+    }
+
     if (item.divider) {
       return (
         <div key={itemIndex} className="govuk-radios__divider">

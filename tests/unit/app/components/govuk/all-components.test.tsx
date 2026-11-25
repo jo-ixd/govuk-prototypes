@@ -204,11 +204,12 @@ describe("govuk barrel export", () => {
 
   it("covers every component exported from the barrel", async () => {
     const covered = new Set(cases.map((component) => component.name));
-    const exports = await import("@/app/components/govuk");
+    const exports = (await import(
+      "@/app/components/govuk"
+    )) as Record<string, unknown>;
     const exportedNames = Object.keys(exports).filter(
       (name) =>
-        name !== "govukClasses" &&
-        typeof exports[name as keyof typeof exports] === "function",
+        name !== "govukClasses" && typeof exports[name] === "function",
     );
     for (const name of exportedNames) {
       expect(covered.has(name), `${name} is exported but has no render case`).toBe(

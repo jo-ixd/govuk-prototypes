@@ -47,10 +47,10 @@ export default function PasswordInputPlayground() {
           id="password-input-playground"
           name="playground"
           label={{ text: labelText }}
-          hint={hintText ? { text: hintText } : undefined}
-          errorMessage={errorText ? { text: errorText } : undefined}
-          showPasswordText={showText || undefined}
-          hidePasswordText={hideText || undefined}
+          {...(hintText ? { hint: { text: hintText } } : {})}
+          {...(errorText ? { errorMessage: { text: errorText } } : {})}
+          {...(showText ? { showPasswordText: showText } : {})}
+          {...(hideText ? { hidePasswordText: hideText } : {})}
         />
       }
     />

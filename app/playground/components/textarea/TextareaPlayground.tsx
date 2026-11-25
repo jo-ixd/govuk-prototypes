@@ -57,8 +57,8 @@ export default function TextareaPlayground() {
           id="textarea-playground"
           name="playground"
           label={{ text: labelText }}
-          hint={hintText ? { text: hintText } : undefined}
-          errorMessage={errorText ? { text: errorText } : undefined}
+          {...(hintText ? { hint: { text: hintText } } : {})}
+          {...(errorText ? { errorMessage: { text: errorText } } : {})}
           rows={Number.parseInt(rows, 10)}
           disabled={disabled}
         />

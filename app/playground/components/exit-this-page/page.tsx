@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import BackLink from "@/app/components/govuk/BackLink";
 import ExitThisPage from "@/app/components/govuk/ExitThisPage";
 import Example from "@/app/playground/_components/Example";
-import ExitThisPagePlayground from "./ExitThisPagePlayground";
+import ExitThisPagePlayground from "@/app/playground/components/exit-this-page/ExitThisPagePlayground";
 
 export const metadata: Metadata = {
   title: "ExitThisPage - GOV.UK Playground",

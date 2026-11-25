@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import BackLink from "@/app/components/govuk/BackLink";
 import Textarea from "@/app/components/govuk/Textarea";
 import Example from "@/app/playground/_components/Example";
-import TextareaPlayground from "./TextareaPlayground";
+import TextareaPlayground from "@/app/playground/components/textarea/TextareaPlayground";
 
 export const metadata: Metadata = {
   title: "Textarea - GOV.UK Playground",

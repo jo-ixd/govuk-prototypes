@@ -26,12 +26,12 @@ export default function BackLinkPlayground() {
           />
         </>
       }
-      previewClasses={inverse ? "playground-preview--dark" : undefined}
+      {...(inverse ? { previewClasses: "playground-preview--dark" } : {})}
       preview={
         <BackLink
           text={text}
           href={href}
-          classes={inverse ? "govuk-back-link--inverse" : undefined}
+          {...(inverse ? { classes: "govuk-back-link--inverse" } : {})}
         />
       }
     />

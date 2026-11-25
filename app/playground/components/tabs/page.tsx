@@ -3,7 +3,7 @@ import BackLink from "@/app/components/govuk/BackLink";
 import Table from "@/app/components/govuk/Table";
 import Tabs from "@/app/components/govuk/Tabs";
 import Example from "@/app/playground/_components/Example";
-import TabsPlayground from "./TabsPlayground";
+import TabsPlayground from "@/app/playground/components/tabs/TabsPlayground";
 
 export const metadata: Metadata = { title: "Tabs - GOV.UK Playground" };
 

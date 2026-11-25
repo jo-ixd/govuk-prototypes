@@ -4,7 +4,7 @@ import Button from "@/app/components/govuk/Button";
 import Input from "@/app/components/govuk/Input";
 import Radios from "@/app/components/govuk/Radios";
 import Example from "@/app/playground/_components/Example";
-import QuestionPageDemo from "./QuestionPageDemo";
+import QuestionPageDemo from "@/app/playground/patterns/question-pages/QuestionPageDemo";
 
 export const metadata: Metadata = {
   title: "Question pages - GOV.UK Patterns",

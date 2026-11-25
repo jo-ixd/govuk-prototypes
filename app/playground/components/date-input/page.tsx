@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import BackLink from "@/app/components/govuk/BackLink";
 import DateInput from "@/app/components/govuk/DateInput";
 import Example from "@/app/playground/_components/Example";
-import DateInputPlayground from "./DateInputPlayground";
+import DateInputPlayground from "@/app/playground/components/date-input/DateInputPlayground";
 
 export const metadata: Metadata = { title: "Date input - GOV.UK Playground" };
 

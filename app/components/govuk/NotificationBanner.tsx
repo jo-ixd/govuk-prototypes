@@ -8,7 +8,7 @@ export type NotificationBannerProps = CommonProps & {
   titleText?: string;
   titleHtml?: ReactNode;
   titleHeadingLevel?: 1 | 2 | 3 | 4 | 5 | 6;
-  type?: "success";
+  type?: string;
   role?: AriaRole;
   titleId?: string;
   disableAutoFocus?: boolean;

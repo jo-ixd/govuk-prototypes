@@ -70,6 +70,14 @@ export default function Textarea({
     errorMessage ? `${id}-error` : null,
   );
 
+  // React 19's server renderer writes lesser-known props verbatim, so HTML
+  // attributes are passed as lowercase keys — including spellcheck as a
+  // string, matching the njk output of spellcheck="true"/"false".
+  const fieldAttributes: Record<string, string | number | boolean> = {};
+  const spellcheckProp = spellcheck ?? null;
+  if (spellcheckProp !== null) fieldAttributes.spellcheck = String(spellcheckProp);
+  if (autocomplete) fieldAttributes.autocomplete = autocomplete;
+
   return (
     <div
       className={govukClasses(
@@ -104,10 +112,9 @@ export default function Textarea({
         rows={rows}
         value={value}
         defaultValue={defaultValue}
-        spellCheck={spellcheck}
         disabled={disabled}
         aria-describedby={describedByIds ?? undefined}
-        autoComplete={autocomplete}
+        {...fieldAttributes}
         {...attributes}
       />
       {formGroup?.afterInput ? (

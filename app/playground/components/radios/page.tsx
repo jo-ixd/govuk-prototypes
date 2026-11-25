@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import BackLink from "@/app/components/govuk/BackLink";
 import Radios from "@/app/components/govuk/Radios";
 import Example from "@/app/playground/_components/Example";
-import RadiosPlayground from "./RadiosPlayground";
+import RadiosPlayground from "@/app/playground/components/radios/RadiosPlayground";
 
 export const metadata: Metadata = { title: "Radios - GOV.UK Playground" };
 

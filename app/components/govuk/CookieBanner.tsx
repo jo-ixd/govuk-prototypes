@@ -73,7 +73,9 @@ export default function CookieBanner({
               </div>
             </div>
           </div>
-          {message.actions && message.actions.length > 0 && (
+          {/* The njk renders the button group whenever the actions option is
+              set, even when it is empty. */}
+          {message.actions && (
             <div className="govuk-button-group">
               {message.actions.map((action, actionIndex) => {
                 // Actions with an href render as links, unless they are

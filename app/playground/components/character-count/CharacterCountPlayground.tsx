@@ -52,11 +52,11 @@ export default function CharacterCountPlayground() {
         <CharacterCount
           id="character-count-playground"
           name="playground"
-          maxlength={mode === "characters" && validLimit !== null ? validLimit : undefined}
-          maxwords={mode === "words" && validLimit !== null ? validLimit : undefined}
+          {...(mode === "characters" && validLimit !== null ? { maxlength: validLimit } : {})}
+          {...(mode === "words" && validLimit !== null ? { maxwords: validLimit } : {})}
           label={{ text: labelText }}
-          hint={hintText ? { text: hintText } : undefined}
-          errorMessage={errorText ? { text: errorText } : undefined}
+          {...(hintText ? { hint: { text: hintText } } : {})}
+          {...(errorText ? { errorMessage: { text: errorText } } : {})}
         />
       }
     />

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import BackLink from "@/app/components/govuk/BackLink";
 import PasswordInput from "@/app/components/govuk/PasswordInput";
 import Example from "@/app/playground/_components/Example";
-import PasswordInputPlayground from "./PasswordInputPlayground";
+import PasswordInputPlayground from "@/app/playground/components/password-input/PasswordInputPlayground";
 
 export const metadata: Metadata = {
   title: "Password input - GOV.UK Playground",

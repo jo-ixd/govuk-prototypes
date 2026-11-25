@@ -117,6 +117,18 @@ export default function Input({
       .join(" "),
   );
 
+  // React 19's server renderer writes lesser-known props verbatim, so HTML
+  // attributes are passed as lowercase keys — including spellcheck as a
+  // string, matching the njk output of spellcheck="true"/"false".
+  const fieldAttributes: Record<string, string | number | boolean> = {};
+  const spellcheckProp = spellcheck ?? null;
+  if (spellcheckProp !== null) fieldAttributes.spellcheck = String(spellcheckProp);
+  if (autocomplete) fieldAttributes.autocomplete = autocomplete;
+  if (autocapitalize) fieldAttributes.autocapitalize = autocapitalize;
+  if (pattern) fieldAttributes.pattern = pattern;
+  if (inputmode) fieldAttributes.inputmode = inputmode;
+  if (placeholder) fieldAttributes.placeholder = placeholder;
+
   const inputElement = (
     <input
       className={inputClasses}
@@ -126,13 +138,8 @@ export default function Input({
       value={value}
       defaultValue={defaultValue}
       disabled={disabled}
-      spellCheck={spellcheck}
-      placeholder={placeholder}
-      autoComplete={autocomplete}
-      autoCapitalize={autocapitalize}
-      pattern={pattern}
-      inputMode={inputmode}
       aria-describedby={describedByIds ?? undefined}
+      {...fieldAttributes}
       {...attributes}
     />
   );

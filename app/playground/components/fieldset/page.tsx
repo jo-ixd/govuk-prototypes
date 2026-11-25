@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import BackLink from "@/app/components/govuk/BackLink";
 import Fieldset from "@/app/components/govuk/Fieldset";
 import Example from "@/app/playground/_components/Example";
-import FieldsetPlayground from "./FieldsetPlayground";
+import FieldsetPlayground from "@/app/playground/components/fieldset/FieldsetPlayground";
 
 export const metadata: Metadata = { title: "Fieldset - GOV.UK Playground" };
 

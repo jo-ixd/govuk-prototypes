@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import BackLink from "@/app/components/govuk/BackLink";
 import NotificationBanner from "@/app/components/govuk/NotificationBanner";
 import Example from "@/app/playground/_components/Example";
-import NotificationBannerPlayground from "./NotificationBannerPlayground";
+import NotificationBannerPlayground from "@/app/playground/components/notification-banner/NotificationBannerPlayground";
 
 export const metadata: Metadata = {
   title: "NotificationBanner - GOV.UK Playground",

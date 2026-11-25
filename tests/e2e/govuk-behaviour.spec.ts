@@ -46,6 +46,14 @@ test.describe("govuk progressive enhancement", () => {
     const firstSection = page.locator(".govuk-accordion__section").first();
     await expect(firstSection).toHaveClass(/govuk-accordion__section--expanded/);
 
+    // govuk's script swaps the heading span for a button when it enhances the
+    // accordion - wait for that before clicking, or the click lands on a
+    // non-interactive span and the section never toggles
+    await page.waitForFunction(() => {
+      const button = document.querySelector(".govuk-accordion__section-button");
+      return button !== null && button.tagName === "BUTTON";
+    });
+
     await page
       .locator(".govuk-accordion__section-button")
       .first()

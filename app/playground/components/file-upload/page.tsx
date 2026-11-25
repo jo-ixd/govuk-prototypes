@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import BackLink from "@/app/components/govuk/BackLink";
 import FileUpload from "@/app/components/govuk/FileUpload";
 import Example from "@/app/playground/_components/Example";
-import FileUploadPlayground from "./FileUploadPlayground";
+import FileUploadPlayground from "@/app/playground/components/file-upload/FileUploadPlayground";
 
 export const metadata: Metadata = {
   title: "File upload - GOV.UK Playground",

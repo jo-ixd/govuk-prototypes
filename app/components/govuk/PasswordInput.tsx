@@ -134,7 +134,7 @@ export default function PasswordInput({
       inputWrapper={{ classes: "govuk-password-input__wrapper" }}
       formGroup={{
         classes: govukClasses("govuk-password-input", formGroup?.classes),
-        attributes: { ...passwordAttributes, ...formGroup?.attributes },
+        attributes: { ...formGroup?.attributes, ...passwordAttributes },
         beforeInput: formGroup?.beforeInput,
         afterInput: {
           html: (

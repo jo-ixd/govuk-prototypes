@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import BackLink from "@/app/components/govuk/BackLink";
 import Checkboxes from "@/app/components/govuk/Checkboxes";
 import Example from "@/app/playground/_components/Example";
-import CheckboxesPlayground from "./CheckboxesPlayground";
+import CheckboxesPlayground from "@/app/playground/components/checkboxes/CheckboxesPlayground";
 
 export const metadata: Metadata = { title: "Checkboxes - GOV.UK Playground" };
 

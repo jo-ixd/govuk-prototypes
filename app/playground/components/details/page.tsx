@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import BackLink from "@/app/components/govuk/BackLink";
 import Details from "@/app/components/govuk/Details";
 import Example from "@/app/playground/_components/Example";
-import DetailsPlayground from "./DetailsPlayground";
+import DetailsPlayground from "@/app/playground/components/details/DetailsPlayground";
 
 export const metadata: Metadata = { title: "Details - GOV.UK Playground" };
 

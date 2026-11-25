@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import BackLink from "@/app/components/govuk/BackLink";
 import Table from "@/app/components/govuk/Table";
 import Example from "@/app/playground/_components/Example";
-import CookiesPreferencesForm from "./CookiesPreferencesForm";
+import CookiesPreferencesForm from "@/app/playground/patterns/cookies-page/CookiesPreferencesForm";
 
 export const metadata: Metadata = {
   title: "Cookies page - GOV.UK Patterns",

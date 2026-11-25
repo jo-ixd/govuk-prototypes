@@ -8,9 +8,9 @@ describe("PasswordInput", () => {
     const input = screen.getByLabelText("Password");
     expect(input).toHaveAttribute("type", "password");
     expect(input).toHaveClass("govuk-password-input__input");
-    const module = input.closest(".govuk-password-input");
-    expect(module).not.toBeNull();
-    expect(module).toHaveAttribute("data-module", "govuk-password-input");
+    const moduleWrapper = input.closest(".govuk-password-input");
+    expect(moduleWrapper).not.toBeNull();
+    expect(moduleWrapper).toHaveAttribute("data-module", "govuk-password-input");
   });
 
   it("defaults to the current-password autocomplete and no spellcheck", () => {

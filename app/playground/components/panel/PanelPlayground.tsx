@@ -57,16 +57,16 @@ export default function PanelPlayground() {
           headingLevel={headingLevel}
           text={text}
           classes={variant}
-          actions={
-            isInterruption
-              ? {
+          {...(isInterruption
+            ? {
+                actions: {
                   items: [
                     { text: "Yes, this is correct", type: "button" },
                     { text: "No, change my age", href: "#" },
                   ],
-                }
-              : undefined
-          }
+                },
+              }
+            : {})}
         />
       }
     />

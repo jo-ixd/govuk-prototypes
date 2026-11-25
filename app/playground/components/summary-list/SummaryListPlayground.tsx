@@ -110,10 +110,8 @@ export default function SummaryListPlayground() {
       preview={
         <SummaryList
           rows={rows}
-          classes={noBorder ? "govuk-summary-list--no-border" : undefined}
-          card={
-            cardTitle ? { title: { text: cardTitle } } : undefined
-          }
+          {...(noBorder ? { classes: "govuk-summary-list--no-border" } : {})}
+          {...(cardTitle ? { card: { title: { text: cardTitle } } } : {})}
         />
       }
     />

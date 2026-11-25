@@ -24,7 +24,7 @@ export default function InsetTextPlayground() {
         </>
       }
       preview={
-        <InsetText text={text} id={id || undefined} classes={classes} />
+        <InsetText text={text} {...(id ? { id } : {})} classes={classes} />
       }
     />
   );

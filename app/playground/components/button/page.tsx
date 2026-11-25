@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import BackLink from "@/app/components/govuk/BackLink";
 import Button from "@/app/components/govuk/Button";
 import Example from "@/app/playground/_components/Example";
-import ButtonPlayground from "./ButtonPlayground";
+import ButtonPlayground from "@/app/playground/components/button/ButtonPlayground";
 
 export const metadata: Metadata = {
   title: "Button - GOV.UK Playground",

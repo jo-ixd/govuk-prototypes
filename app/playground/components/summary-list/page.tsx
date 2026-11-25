@@ -4,7 +4,7 @@ import SummaryList, {
   type SummaryListRow,
 } from "@/app/components/govuk/SummaryList";
 import Example from "@/app/playground/_components/Example";
-import SummaryListPlayground from "./SummaryListPlayground";
+import SummaryListPlayground from "@/app/playground/components/summary-list/SummaryListPlayground";
 
 export const metadata: Metadata = { title: "Summary list - GOV.UK Playground" };
 

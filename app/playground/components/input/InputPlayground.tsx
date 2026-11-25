@@ -73,11 +73,11 @@ export default function InputPlayground() {
           id="input-playground"
           name="playground"
           label={{ text: labelText }}
-          hint={hintText ? { text: hintText } : undefined}
-          errorMessage={errorText ? { text: errorText } : undefined}
-          prefix={prefixText ? { text: prefixText } : undefined}
-          suffix={suffixText ? { text: suffixText } : undefined}
-          classes={widthClass || undefined}
+          {...(hintText ? { hint: { text: hintText } } : {})}
+          {...(errorText ? { errorMessage: { text: errorText } } : {})}
+          {...(prefixText ? { prefix: { text: prefixText } } : {})}
+          {...(suffixText ? { suffix: { text: suffixText } } : {})}
+          {...(widthClass ? { classes: widthClass } : {})}
           disabled={disabled}
         />
       }

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import BackLink from "@/app/components/govuk/BackLink";
 import PhaseBanner from "@/app/components/govuk/PhaseBanner";
 import Example from "@/app/playground/_components/Example";
-import PhaseBannerPlayground from "./PhaseBannerPlayground";
+import PhaseBannerPlayground from "@/app/playground/components/phase-banner/PhaseBannerPlayground";
 
 export const metadata: Metadata = {
   title: "PhaseBanner - GOV.UK Playground",

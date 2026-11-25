@@ -3,8 +3,10 @@ import type { CommonProps } from "@/app/components/govuk/types";
 import { govukClasses } from "@/app/components/govuk/utils";
 
 export type FooterNavigationItem = {
-  text: string;
-  href: string;
+  // The njk template skips navigation items without both a link and text,
+  // so both are optional and items missing either are not rendered.
+  text?: string;
+  href?: string;
   attributes?: Record<string, string | number | boolean>;
 };
 
@@ -117,17 +119,21 @@ export default function Footer({
                         : "",
                     )}
                   >
-                    {section.items.map((item, itemIndex) => (
-                      <li key={itemIndex} className="govuk-footer__list-item">
-                        <a
-                          className="govuk-footer__link"
-                          href={item.href}
-                          {...item.attributes}
-                        >
-                          {item.text}
-                        </a>
-                      </li>
-                    ))}
+                    {section.items.map((item, itemIndex) =>
+                      // Items without both a link and text are skipped, as
+                      // in the njk template.
+                      item.href && item.text ? (
+                        <li key={itemIndex} className="govuk-footer__list-item">
+                          <a
+                            className="govuk-footer__link"
+                            href={item.href}
+                            {...item.attributes}
+                          >
+                            {item.text}
+                          </a>
+                        </li>
+                      ) : null,
+                    )}
                   </ul>
                 )}
               </div>

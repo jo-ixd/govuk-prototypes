@@ -174,7 +174,7 @@ export default function CharacterCount({
       describedBy={`${id}-info`}
       formGroup={{
         classes: govukClasses("govuk-character-count", formGroup?.classes),
-        attributes: { ...countAttributes, ...formGroup?.attributes },
+        attributes: { ...formGroup?.attributes, ...countAttributes },
         beforeInput: formGroup?.beforeInput,
         afterInput: {
           html: (

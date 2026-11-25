@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import BackLink from "@/app/components/govuk/BackLink";
 import SkipLink from "@/app/components/govuk/SkipLink";
 import Example from "@/app/playground/_components/Example";
-import SkipLinkPlayground from "./SkipLinkPlayground";
+import SkipLinkPlayground from "@/app/playground/components/skip-link/SkipLinkPlayground";
 
 export const metadata: Metadata = {
   title: "Skip Link - GOV.UK Playground",

@@ -49,8 +49,8 @@ export default function FileUploadPlayground() {
           id="file-upload-playground"
           name="playground"
           label={{ text: labelText }}
-          hint={hintText ? { text: hintText } : undefined}
-          errorMessage={errorText ? { text: errorText } : undefined}
+          {...(hintText ? { hint: { text: hintText } } : {})}
+          {...(errorText ? { errorMessage: { text: errorText } } : {})}
           javascript={enhanced}
           multiple={multiple}
         />

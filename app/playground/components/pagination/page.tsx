@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import BackLink from "@/app/components/govuk/BackLink";
 import Pagination from "@/app/components/govuk/Pagination";
 import Example from "@/app/playground/_components/Example";
-import PaginationPlayground from "./PaginationPlayground";
+import PaginationPlayground from "@/app/playground/components/pagination/PaginationPlayground";
 
 export const metadata: Metadata = {
   title: "Pagination - GOV.UK Playground",

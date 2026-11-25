@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import BackLink from "@/app/components/govuk/BackLink";
 import TaskList from "@/app/components/govuk/TaskList";
 import Example from "@/app/playground/_components/Example";
-import TaskListPlayground from "./TaskListPlayground";
+import TaskListPlayground from "@/app/playground/components/task-list/TaskListPlayground";
 
 export const metadata: Metadata = { title: "Task list - GOV.UK Playground" };
 

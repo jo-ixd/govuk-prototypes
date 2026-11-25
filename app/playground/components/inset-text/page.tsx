@@ -3,7 +3,7 @@ import BackLink from "@/app/components/govuk/BackLink";
 import InsetText from "@/app/components/govuk/InsetText";
 import WarningText from "@/app/components/govuk/WarningText";
 import Example from "@/app/playground/_components/Example";
-import InsetTextPlayground from "./InsetTextPlayground";
+import InsetTextPlayground from "@/app/playground/components/inset-text/InsetTextPlayground";
 
 export const metadata: Metadata = {
   title: "InsetText - GOV.UK Playground",

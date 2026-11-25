@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Accordion from "@/app/components/govuk/Accordion";
 import BackLink from "@/app/components/govuk/BackLink";
 import Example from "@/app/playground/_components/Example";
-import AccordionPlayground from "./AccordionPlayground";
+import AccordionPlayground from "@/app/playground/components/accordion/AccordionPlayground";
 
 export const metadata: Metadata = { title: "Accordion - GOV.UK Playground" };
 
