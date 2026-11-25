@@ -52,11 +52,24 @@ The pattern pages under `app/playground/patterns` are the templates to copy: a q
 ## Commands
 
 ```bash
-npm run dev        # start the dev server
-npm run build      # copy govuk assets and build for production
-npm run typecheck  # tsc --noEmit
-npm run lint       # eslint
+npm run dev            # start the dev server
+npm run build          # copy govuk assets and build for production
+npm run typecheck      # tsc --noEmit
+npm run lint           # eslint
+npm test               # unit tests
+npm run test:watch     # unit tests in watch mode
+npm run test:coverage  # unit tests with coverage thresholds
+npm run test:e2e       # end to end tests against a production build
 ```
+
+## Testing
+
+The suite has two layers, both runnable locally:
+
+- **Unit tests** (`tests/unit/...`) mirror the `app/` tree and lock down the component contracts: aria and id wiring between labels, hints, errors and fields, GOV.UK class names, the `data-module` hooks that let the design system JavaScript work unchanged, error variants, the journey param helpers, the client forms and the init script. A barrel completeness test fails if a component is exported without a minimal render case, so new components cannot skip coverage.
+- **End to end tests** (`tests/e2e/...`) run in Chromium against a production build that Playwright starts automatically: the full example-service journey with its GOV.UK error patterns, a route inventory that discovers every playground, pattern and service page and asserts it renders, live govuk-frontend enhancements (character count, accordion, tabs), the served fonts and images, and the GOV.UK styled 404.
+
+Generated reports (coverage, Playwright HTML reports, test results) are written to `.artifacts/`, which is gitignored. CI runs lint, typecheck, coverage-checked unit tests and the end to end suite on every push and pull request.
 
 ## Project structure
 
@@ -70,4 +83,9 @@ app/
     example-service/   # a complete multi-page user journey
   govuk.scss           # govuk-frontend styles entry point
 scripts/copy-govuk-assets.mjs  # copies fonts/images/manifest into public/assets
+tests/
+  unit/                # vitest unit tests, mirroring the app/ tree
+  e2e/                 # playwright end to end specs
+  setup.ts             # vitest setup: jest-dom matchers, rtl cleanup
+.artifacts/            # generated coverage and playwright reports (ignored)
 ```
