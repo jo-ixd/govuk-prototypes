@@ -137,7 +137,9 @@ export default function Pagination({
                     className="govuk-link govuk-pagination__link"
                     href={item.href}
                     aria-label={item.visuallyHiddenText ?? `Page ${item.number}`}
-                    aria-current={item.current ? "page" : null}
+                    {...(item.current
+                      ? { "aria-current": "page" as const }
+                      : {})}
                     {...item.attributes}
                   >
                     {item.number}

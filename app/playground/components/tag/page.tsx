@@ -40,7 +40,7 @@ export default function TagPage() {
               key={variant.classes ?? "default"}
               className="govuk-grid-column-one-third"
             >
-              <Tag classes={variant.classes}>{variant.text}</Tag>
+              <Tag text={variant.text} classes={variant.classes} />
             </div>
           ))}
         </div>

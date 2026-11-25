@@ -10,6 +10,14 @@ import { govukClasses } from "@/app/components/govuk/utils";
 
 export type InputAffix = TextOrHtml & CommonProps;
 
+type DistributiveOmit<T, K extends PropertyKey> = T extends unknown
+  ? Omit<T, K>
+  : never;
+
+export type FieldLabel = DistributiveOmit<LabelProps, "htmlFor">;
+export type FieldHint = DistributiveOmit<HintProps, "id">;
+export type FieldErrorMessage = DistributiveOmit<ErrorMessageProps, "id">;
+
 export type InputFormGroup = {
   classes?: string;
   attributes?: Record<string, string | number | boolean>;
@@ -25,9 +33,9 @@ export type InputProps = CommonProps & {
   defaultValue?: string;
   disabled?: boolean;
   describedBy?: string;
-  label: Omit<LabelProps, "htmlFor">;
-  hint?: Omit<HintProps, "id">;
-  errorMessage?: Omit<ErrorMessageProps, "id">;
+  label: FieldLabel;
+  hint?: FieldHint;
+  errorMessage?: FieldErrorMessage;
   prefix?: InputAffix;
   suffix?: InputAffix;
   formGroup?: InputFormGroup;
@@ -35,7 +43,15 @@ export type InputProps = CommonProps & {
   autocomplete?: string;
   autocapitalize?: string;
   pattern?: string;
-  inputmode?: string;
+  inputmode?:
+    | "none"
+    | "text"
+    | "tel"
+    | "url"
+    | "email"
+    | "numeric"
+    | "decimal"
+    | "search";
   spellcheck?: boolean;
   placeholder?: string;
 };
@@ -116,14 +132,14 @@ export default function Input({
       autoCapitalize={autocapitalize}
       pattern={pattern}
       inputMode={inputmode}
-      aria-describedby={describedByIds}
+      aria-describedby={describedByIds ?? undefined}
       {...attributes}
     />
   );
 
-  const renderAffix = (type: "prefix" | "suffix", affix: InputAffix) => (
+  const renderAffix = (affixType: "prefix" | "suffix", affix: InputAffix) => (
     <div
-      className={govukClasses(`govuk-input__${type}`, affix.classes)}
+      className={govukClasses(`govuk-input__${affixType}`, affix.classes)}
       aria-hidden="true"
       {...affix.attributes}
     >

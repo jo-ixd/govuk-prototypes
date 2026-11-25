@@ -15,6 +15,14 @@ export type TextareaFormGroup = {
   afterInput?: TextOrHtml;
 };
 
+type DistributiveOmit<T, K extends PropertyKey> = T extends unknown
+  ? Omit<T, K>
+  : never;
+
+export type FieldLabel = DistributiveOmit<LabelProps, "htmlFor">;
+export type FieldHint = DistributiveOmit<HintProps, "id">;
+export type FieldErrorMessage = DistributiveOmit<ErrorMessageProps, "id">;
+
 export type TextareaProps = CommonProps & {
   id?: string;
   name: string;
@@ -24,9 +32,9 @@ export type TextareaProps = CommonProps & {
   spellcheck?: boolean;
   disabled?: boolean;
   describedBy?: string;
-  label: Omit<LabelProps, "htmlFor">;
-  hint?: Omit<HintProps, "id">;
-  errorMessage?: Omit<ErrorMessageProps, "id">;
+  label: FieldLabel;
+  hint?: FieldHint;
+  errorMessage?: FieldErrorMessage;
   formGroup?: TextareaFormGroup;
   autocomplete?: string;
 };
@@ -98,7 +106,7 @@ export default function Textarea({
         defaultValue={defaultValue}
         spellCheck={spellcheck}
         disabled={disabled}
-        aria-describedby={describedByIds}
+        aria-describedby={describedByIds ?? undefined}
         autoComplete={autocomplete}
         {...attributes}
       />

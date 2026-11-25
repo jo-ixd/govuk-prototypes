@@ -1,6 +1,6 @@
 import { useId } from "react";
 import type { ReactNode } from "react";
-import type { CommonProps } from "@/app/components/govuk/types";
+import type { CommonProps, TextOrHtml } from "@/app/components/govuk/types";
 import type { LabelProps } from "@/app/components/govuk/Label";
 import type { HintProps } from "@/app/components/govuk/Hint";
 import type { ErrorMessageProps } from "@/app/components/govuk/ErrorMessage";
@@ -21,9 +21,17 @@ export type SelectItem = {
 export type SelectFormGroup = {
   classes?: string;
   attributes?: Record<string, string | number | boolean>;
-  beforeInput?: { text: string; html?: ReactNode };
-  afterInput?: { text: string; html?: ReactNode };
+  beforeInput?: TextOrHtml;
+  afterInput?: TextOrHtml;
 };
+
+type DistributiveOmit<T, K extends PropertyKey> = T extends unknown
+  ? Omit<T, K>
+  : never;
+
+export type FieldLabel = DistributiveOmit<LabelProps, "htmlFor">;
+export type FieldHint = DistributiveOmit<HintProps, "id">;
+export type FieldErrorMessage = DistributiveOmit<ErrorMessageProps, "id">;
 
 export type SelectProps = CommonProps & {
   id?: string;
@@ -32,9 +40,9 @@ export type SelectProps = CommonProps & {
   value?: string;
   disabled?: boolean;
   describedBy?: string;
-  label: Omit<LabelProps, "htmlFor">;
-  hint?: Omit<HintProps, "id">;
-  errorMessage?: Omit<ErrorMessageProps, "id">;
+  label: FieldLabel;
+  hint?: FieldHint;
+  errorMessage?: FieldErrorMessage;
   formGroup?: SelectFormGroup;
 };
 
@@ -78,7 +86,7 @@ export default function Select({
   const selectedItem = items.find(
     (item): item is SelectItem => item !== null && isSelected(item),
   );
-  const defaultValue = selectedItem
+  const selectedDefaultValue = selectedItem
     ? selectedItem.value ?? selectedItem.text ?? null
     : null;
 
@@ -117,8 +125,8 @@ export default function Select({
         id={id}
         name={name}
         disabled={disabled}
-        aria-describedby={describedByIds}
-        defaultValue={defaultValue}
+        aria-describedby={describedByIds ?? undefined}
+        defaultValue={selectedDefaultValue === null ? undefined : selectedDefaultValue}
         {...attributes}
       >
         {items.map(

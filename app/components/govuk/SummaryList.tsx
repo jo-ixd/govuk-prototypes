@@ -136,8 +136,10 @@ export default function SummaryList({
       {...attributes}
     >
       {rows.map((row, index) => {
+        const actions = row.actions;
+        const hasActions = Boolean(actions && actions.items.length > 0);
         let rowClasses = "govuk-summary-list__row";
-        if (anyRowHasActions && !rowHasActions(row)) {
+        if (anyRowHasActions && !hasActions) {
           rowClasses += " govuk-summary-list__row--no-actions";
         }
         if (row.classes) rowClasses += ` ${row.classes}`;
@@ -149,8 +151,8 @@ export default function SummaryList({
             <dd className={govukClasses("govuk-summary-list__value", row.value.classes)}>
               {row.value.html ?? row.value.text}
             </dd>
-            {rowHasActions(row) && (
-              <RowActions actions={row.actions} cardTitle={card?.title} />
+            {hasActions && actions && (
+              <RowActions actions={actions} cardTitle={card?.title} />
             )}
           </div>
         );
