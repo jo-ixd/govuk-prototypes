@@ -69,7 +69,7 @@ The suite has two layers, both runnable locally:
 - **Unit tests** (`tests/unit/...`) mirror the `app/` tree and lock down the component contracts: aria and id wiring between labels, hints, errors and fields, GOV.UK class names, the `data-module` hooks that let the design system JavaScript work unchanged, error variants, the journey param helpers, the client forms and the init script. A barrel completeness test fails if a component is exported without a minimal render case, so new components cannot skip coverage.
 - **End to end tests** (`tests/e2e/...`) run in Chromium against a production build that Playwright starts automatically: the full example-service journey with its GOV.UK error patterns, a route inventory that discovers every playground, pattern and service page and asserts it renders, live govuk-frontend enhancements (character count, accordion, tabs), the served fonts and images, and the GOV.UK styled 404.
 
-Generated reports (coverage, Playwright HTML reports, test results) are written to `.artifacts/`, which is gitignored. CI runs lint, typecheck, coverage-checked unit tests and the end to end suite on every push and pull request.
+Generated output (coverage and test results) is written to `.artifacts/`, which is gitignored. CI runs lint, typecheck, coverage-checked unit tests and the end to end suite on every push and pull request.
 
 ## Project structure
 
@@ -87,5 +87,5 @@ tests/
   unit/                # vitest unit tests, mirroring the app/ tree
   e2e/                 # playwright end to end specs
   setup.ts             # vitest setup: jest-dom matchers, rtl cleanup
-.artifacts/            # generated coverage and playwright reports (ignored)
+.artifacts/            # generated coverage and test results (ignored)
 ```
