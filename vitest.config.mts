@@ -19,6 +19,12 @@ export default defineConfig({
         "app/playground/example-service/**/*.{ts,tsx}",
       ],
       exclude: ["app/playground/example-service/**/page.tsx"],
+      thresholds: {
+        statements: 90,
+        branches: 80,
+        functions: 90,
+        lines: 92,
+      },
     },
   },
 });
