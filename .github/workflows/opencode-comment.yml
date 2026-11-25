@@ -8,8 +8,12 @@ on:
     types: [created]
 
 permissions:
-  contents: read
-  pull-requests: read
+  # The agent commits to the PR branch with the credentials persisted by
+  # actions/checkout, so the token needs write access to contents.
+  contents: write
+  # Reactions and comments on a PR are gated behind pull-requests: write
+  # even though they go through the issues API.
+  pull-requests: write
   issues: write
 
 jobs:
