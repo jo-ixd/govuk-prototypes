@@ -117,7 +117,7 @@ export default function CheckAnswersPage() {
           </p>
           <form noValidate>
             <input type="hidden" name="answers-checked" value="true" />
-            <Button text="Accept and send" />
+            <Button text="Accept and send" type="button" />
           </form>
         </div>
       </Example>

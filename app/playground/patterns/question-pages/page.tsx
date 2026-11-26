@@ -38,7 +38,7 @@ export default function QuestionPagesPage() {
             classes="govuk-input--width-10"
             autoComplete="postal-code"
           />
-          <Button text="Continue" />
+          <Button text="Continue" type="button" />
         </form>
       </Example>
 
@@ -70,7 +70,7 @@ export default function QuestionPagesPage() {
               { value: "northern-ireland", text: "Northern Ireland" },
             ]}
           />
-          <Button text="Continue" />
+          <Button text="Continue" type="button" />
         </form>
       </Example>
 
