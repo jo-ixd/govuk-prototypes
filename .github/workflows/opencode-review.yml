@@ -5,6 +5,13 @@ on:
   pull_request:
     types: [opened, synchronize, reopened, ready_for_review]
 
+# Only one agent review per PR at a time - a new push supersedes the review
+# of the previous push, and a comment review in the opencode-comment workflow
+# shares this group so the newest trigger always wins.
+concurrency:
+  group: opencode-review-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
 permissions:
   contents: read
   # Reactions and comments on a PR go through the issues API, but GitHub

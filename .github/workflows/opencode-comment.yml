@@ -7,6 +7,13 @@ on:
   pull_request_review_comment:
     types: [created]
 
+# Shares its concurrency group with the push-triggered review workflow so a
+# comment review supersedes any whole-PR review already in flight - only one
+# agent review runs per PR at a time, and the newest trigger wins.
+concurrency:
+  group: opencode-review-${{ github.event.pull_request.number || github.event.issue.number }}
+  cancel-in-progress: true
+
 permissions:
   # The agent commits to the PR branch with the credentials persisted by
   # actions/checkout, so the token needs write access to contents.
@@ -23,7 +30,7 @@ jobs:
         github.event_name == 'pull_request_review_comment' ||
         (github.event_name == 'issue_comment' && github.event.issue.pull_request)
       ) && (
-        contains(github.event.comment.body, '/oc') ||
+        contains(github.event.comment.body, '/opencode') ||
         contains(github.event.comment.body, '@opencode')
       ) && (
         contains(fromJson('["OWNER", "MEMBER", "COLLABORATOR"]'), github.event.comment.author_association)
@@ -42,8 +49,10 @@ jobs:
           model: opencode-go/glm-5.3
           use_github_token: true
           # Trigger phrases, case-insensitive. "@opencode" enables tag-style
-          # mentions; "/oc" also covers "/opencode" as a substring.
-          mentions: /opencode,/oc,@opencode
+          # mentions; "/opencode" is the full slash command spelling. A bare
+          # "/oc" is deliberately not matched - it appears inside ordinary
+          # comments like file paths far too often.
+          mentions: /opencode,@opencode
           prompt: |
             You are a code reviewer. Your job is to review code changes and provide actionable feedback.
 
