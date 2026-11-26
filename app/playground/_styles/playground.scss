@@ -68,17 +68,29 @@
   border-color: #6f777b;
 }
 
+/* Index page card grids. A CSS grid rather than govuk-grid-row with
+   govuk-grid-column classes, so every card in a row is the same height and
+   the gutters between cards stay even. */
+.playground-index-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
 .playground-index-card {
   display: block;
   border: 1px solid #b1b4b6;
   padding: 15px 20px;
-  margin-bottom: 15px;
   text-decoration: none;
+  /* govuk-frontend only applies GDS Transport to its own classes, so text in
+     the demo kit chrome needs the font set explicitly - otherwise it renders
+     in the browser default serif. */
+  font-family: "GDS Transport", arial, sans-serif;
 }
 
 .playground-index-card:hover {
   border-color: #1d70b8;
-  text-decoration: none;
 }
 
 .playground-index-card__meta {

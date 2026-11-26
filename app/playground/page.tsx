@@ -93,21 +93,20 @@ export default function PlaygroundPage() {
   return (
     <>
       <h1 className="govuk-heading-xl">GOV.UK Playground</h1>
-      <p className="govuk-body-l">
+      <p className="govuk-body">
         Every GOV.UK Design System component, ported from govuk-frontend to
         React, with official examples and live controls - plus the design
         system patterns built from them.
       </p>
 
       <h2 className="govuk-heading-l">Components</h2>
-      <div className="govuk-grid-row">
+      <div className="playground-index-grid">
         {COMPONENTS.map((component) => (
-          <div
-            className="govuk-grid-column-one-half"
+          <Card
             key={component.slug}
-          >
-            <Card {...component} base="/playground/components" />
-          </div>
+            {...component}
+            base="/playground/components"
+          />
         ))}
       </div>
 
@@ -115,11 +114,13 @@ export default function PlaygroundPage() {
       {PATTERN_GROUPS.map((group) => (
         <div key={group.title}>
           <h3 className="govuk-heading-m">{group.title}</h3>
-          <div className="govuk-grid-row">
+          <div className="playground-index-grid">
             {group.patterns.map((pattern) => (
-              <div className="govuk-grid-column-one-half" key={pattern.slug}>
-                <Card {...pattern} base="/playground/patterns" />
-              </div>
+              <Card
+                key={pattern.slug}
+                {...pattern}
+                base="/playground/patterns"
+              />
             ))}
           </div>
         </div>

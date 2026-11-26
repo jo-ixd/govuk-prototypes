@@ -49,7 +49,7 @@ export default function PatternsIndexPage() {
   return (
     <>
       <h1 className="govuk-heading-xl">Patterns</h1>
-      <p className="govuk-body-l">
+      <p className="govuk-body">
         Design solutions for common user tasks, composed from the components -
         as described in the GOV.UK Design System.
       </p>
@@ -57,19 +57,18 @@ export default function PatternsIndexPage() {
       {PATTERN_GROUPS.map((group) => (
         <div key={group.title}>
           <h2 className="govuk-heading-l">{group.title}</h2>
-          <div className="govuk-grid-row">
+          <div className="playground-index-grid">
             {group.patterns.map((pattern) => (
-              <div className="govuk-grid-column-one-half" key={pattern.slug}>
-                <Link
-                  className="playground-index-card"
-                  href={`/playground/patterns/${pattern.slug}`}
-                >
-                  <h3 className="govuk-heading-s">{pattern.name}</h3>
-                  <span className="playground-index-card__meta">
-                    {pattern.description}
-                  </span>
-                </Link>
-              </div>
+              <Link
+                key={pattern.slug}
+                className="playground-index-card"
+                href={`/playground/patterns/${pattern.slug}`}
+              >
+                <h3 className="govuk-heading-s">{pattern.name}</h3>
+                <span className="playground-index-card__meta">
+                  {pattern.description}
+                </span>
+              </Link>
             ))}
           </div>
         </div>
