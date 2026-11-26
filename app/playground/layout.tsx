@@ -4,7 +4,6 @@ import Footer from "@/app/components/govuk/Footer";
 import Header from "@/app/components/govuk/Header";
 import PhaseBanner from "@/app/components/govuk/PhaseBanner";
 import ServiceNavigation from "@/app/components/govuk/ServiceNavigation";
-import SkipLink from "@/app/components/govuk/SkipLink";
 import PlaygroundNav from "@/app/playground/_components/PlaygroundNav";
 import "./_styles/playground.scss";
 
@@ -19,7 +18,6 @@ export default function PlaygroundLayout({
 }: Readonly<{ children: ReactNode }>) {
   return (
     <>
-      <SkipLink text="Skip to main content" />
       <Header homepageUrl="/" />
       <ServiceNavigation
         serviceName="GOV.UK Playground"

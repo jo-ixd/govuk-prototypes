@@ -1,4 +1,3 @@
-import { useId } from "react";
 import type { CommonPropsTextOrHtml } from "@/app/components/govuk/types";
 import { govukClasses } from "@/app/components/govuk/utils";
 
@@ -6,19 +5,19 @@ export type SkipLinkProps = CommonPropsTextOrHtml & {
   href?: string;
 };
 
+// Matches the GOV.UK template: the link targets the id given to the main
+// content region, which every layout and the Page component set to
+// "main-content".
 export default function SkipLink({
-  href = "#content",
+  href = "#main-content",
   classes,
   attributes,
   text,
   html,
 }: SkipLinkProps) {
-  const id = useId();
-
   return (
     <a
       href={href}
-      id={id}
       className={govukClasses("govuk-skip-link", classes)}
       {...attributes}
       data-module="govuk-skip-link"

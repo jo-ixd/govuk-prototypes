@@ -20,7 +20,7 @@ export default function SkipLinkPage() {
 
       <Example
         title="Default"
-        description="The skip link is visually hidden until it receives keyboard focus, so you must tab into the preview to see it appear."
+        description="The skip link is visually hidden until it receives keyboard focus, so you must tab into the preview to see it appear. Activating it skips to this page's main content region, which has the id main-content."
       >
         <SkipLink text="Skip to main content" />
       </Example>
@@ -30,6 +30,10 @@ export default function SkipLinkPage() {
         description="Tab into the preview to see this skip link, which points at #custom."
       >
         <SkipLink text="Skip to custom content" href="#custom" />
+        <p className="govuk-body" id="custom">
+          The skip link jumps here, because this paragraph is the element with
+          the id custom.
+        </p>
       </Example>
 
       <SkipLinkPlayground />

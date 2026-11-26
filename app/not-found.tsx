@@ -1,13 +1,16 @@
-import BackLink from "@/app/components/govuk/BackLink";
-import Button from "@/app/components/govuk/Button";
-import InsetText from "@/app/components/govuk/InsetText";
-import Panel from "@/app/components/govuk/Panel";
-import SkipLink from "@/app/components/govuk/SkipLink";
+import type { Metadata } from "next";
+import Link from "next/link";
+import Footer from "@/app/components/govuk/Footer";
+import Header from "@/app/components/govuk/Header";
+
+export const metadata: Metadata = {
+  title: "Page not found - GOV.UK Playground",
+};
 
 export default function NotFound() {
   return (
     <>
-      <SkipLink text="Skip to main content" />
+      <Header homepageUrl="/" />
       <div className="govuk-width-container">
         <main
           className="govuk-main-wrapper govuk-main-wrapper--l"
@@ -16,30 +19,41 @@ export default function NotFound() {
         >
           <div className="govuk-grid-row">
             <div className="govuk-grid-column-two-thirds">
-              <Panel
-                titleText="Page not found"
-                text="If you typed the web address, check it is correct."
-              />
-
-              <InsetText
-                text="If you pasted the web address, check you copied the whole address."
-              />
+              <h1 className="govuk-heading-l">Page not found</h1>
 
               <p className="govuk-body">
-                The page you are looking for does not exist in this prototype.
+                If you typed the web address, check it is correct.
               </p>
 
               <p className="govuk-body">
-                <Button text="Back to the playground" href="/playground" />
+                If you pasted the web address, check you copied the entire
+                address.
               </p>
 
               <p className="govuk-body">
-                <BackLink text="Back to the home page" href="/" />
+                If the web address is correct or you selected a link or button,
+                go back to the{" "}
+                <Link className="govuk-link" href="/">
+                  homepage
+                </Link>{" "}
+                or open the{" "}
+                <Link className="govuk-link" href="/playground">
+                  playground
+                </Link>
+                .
               </p>
             </div>
           </div>
         </main>
       </div>
+      <Footer
+        meta={{
+          items: [
+            { text: "GOV.UK Design System", href: "https://design-system.service.gov.uk/" },
+            { text: "govuk-frontend on GitHub", href: "https://github.com/alphagov/govuk-frontend" },
+          ],
+        }}
+      />
     </>
   );
 }

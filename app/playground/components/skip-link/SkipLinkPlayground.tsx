@@ -9,7 +9,7 @@ import {
 
 export default function SkipLinkPlayground() {
   const [text, setText] = useState("Skip to main content");
-  const [href, setHref] = useState("#content");
+  const [href, setHref] = useState("#main-content");
   const [ariaLabel, setAriaLabel] = useState("");
 
   return (
