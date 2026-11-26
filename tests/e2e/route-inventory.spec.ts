@@ -5,7 +5,11 @@ function discoverRoutes(parent: string): string[] {
   return readdirSync(parent, { withFileTypes: true })
     .filter(
       (entry) =>
-        entry.isDirectory() && existsSync(`${parent}/${entry.name}/page.tsx`),
+        entry.isDirectory() &&
+        // Underscore-prefixed folders are private in the app router, so they
+        // never serve a route - skip them the same way the /views index does.
+        !entry.name.startsWith("_") &&
+        existsSync(`${parent}/${entry.name}/page.tsx`),
     )
     .map((entry) => `${parent}/${entry.name}`.replace(/^app/, ""));
 }
@@ -13,13 +17,16 @@ function discoverRoutes(parent: string): string[] {
 const componentRoutes = discoverRoutes("app/playground/components");
 const patternRoutes = discoverRoutes("app/playground/patterns");
 const serviceRoutes = discoverRoutes("app/playground/example-service");
+const viewRoutes = discoverRoutes("app/views");
 
 const allRoutes = [
   "/",
   "/playground",
+  "/views",
   ...componentRoutes,
   ...patternRoutes,
   ...serviceRoutes,
+  ...viewRoutes,
 ];
 
 if (componentRoutes.length !== 36) {

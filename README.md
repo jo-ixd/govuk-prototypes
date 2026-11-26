@@ -17,6 +17,7 @@ Then open [http://localhost:3000](http://localhost:3000).
 - `/playground` - the component playground (every component, official examples, live prop controls)
 - `/playground/patterns` - the design system patterns, built from the components
 - `/playground/example-service` - "Renew a parking permit", a complete multi-page journey with validation
+- `/views` - the design prototypes index
 
 ## Using the components
 
@@ -48,6 +49,10 @@ import { Button, Input, Radios } from "@/app/components/govuk";
 ## Building prototype pages
 
 The pattern pages under `app/playground/patterns` are the templates to copy: a question page is a `BackLink`, a legend or label as the page heading, the field component with `hint` and `errorMessage` props, and a `Button`. The example service under `app/playground/example-service` shows a full journey where answers travel between pages as URL search parameters - no server state required - including returning from check answers with the fields prefilled.
+
+## Design views
+
+Design prototypes live in `app/views`, like the views folder in the GOV.UK Prototype Kit. Any folder with a `page.tsx` file is served at `/views/<folder-name>` and listed on the `/views` index automatically, so dropping in a new prototype is all it takes. New prototypes appear immediately in dev mode; a production build includes them at build time, like any other route. `app/views/example-view` is a minimal prototype to copy: a back link, a question as the page heading, and a Continue button that submits to the page itself.
 
 ## Commands
 
@@ -81,6 +86,7 @@ app/
     components/<slug> # one route per component: official fixtures + live playground
     patterns/<slug>    # design system patterns composed from the components
     example-service/   # a complete multi-page user journey
+  views/<slug>         # design prototypes - drop a folder in, it appears on /views
   govuk.scss           # govuk-frontend styles entry point
 scripts/copy-govuk-assets.mjs  # copies fonts/images/manifest into public/assets
 tests/
