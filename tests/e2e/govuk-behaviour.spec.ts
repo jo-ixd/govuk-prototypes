@@ -104,6 +104,58 @@ test.describe("govuk progressive enhancement", () => {
     expect(pageErrors).toEqual([]);
   });
 
+  test("the exit this page playground announces the current activated text", async ({
+    page,
+  }) => {
+    const pageErrors: string[] = [];
+    page.on("pageerror", (error) => pageErrors.push(String(error)));
+
+    await page.goto("/playground/components/exit-this-page");
+
+    const preview = page.locator(".playground-preview");
+
+    // The indicator lights only exist once govuk's script has enhanced the
+    // page-load markup
+    await expect(
+      preview.locator(".govuk-exit-this-page__indicator-light"),
+    ).toHaveCount(3);
+
+    // Point the redirect at a fragment so activating the exit leaves the
+    // page - and its announcement - alive to be asserted against
+    await page.getByLabel("Redirect URL").fill("#");
+    await page.getByLabel("Activated text").fill("Tudalen ymadael");
+
+    // govuk's ExitThisPage reads its announcement texts once, when the
+    // script initialises - the playground rebuilds the preview from scratch
+    // on every control change, so wait for the rebuilt button to be
+    // enhanced again before clicking it
+    await page.waitForFunction(() => {
+      const root = document.querySelector(
+        ".playground-preview .govuk-exit-this-page",
+      );
+      const button = document.querySelector(
+        ".playground-preview .govuk-exit-this-page__button",
+      );
+      return (
+        root !== null &&
+        button !== null &&
+        root.getAttribute("data-i18n.activated") === "Tudalen ymadael" &&
+        button.getAttribute("href") === "#" &&
+        button.querySelector(".govuk-exit-this-page__indicator") !== null
+      );
+    });
+
+    await preview.locator(".govuk-exit-this-page__button").click();
+
+    // The announcement overlay carries the custom text - without the
+    // rebuild it would still read the init-time default, "Loading."
+    await expect(page.locator(".govuk-exit-this-page-overlay")).toHaveText(
+      "Tudalen ymadael",
+    );
+
+    expect(pageErrors).toEqual([]);
+  });
+
   test("tabs switch to the selected panel", async ({ page }) => {
     await page.goto("/playground/components/tabs");
 

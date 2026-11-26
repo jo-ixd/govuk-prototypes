@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import ExitThisPage from "@/app/components/govuk/ExitThisPage";
+import GovukPreview from "@/app/playground/_components/GovukPreview";
 import {
   ControlPanel,
   ControlText,
@@ -41,12 +42,14 @@ export default function ExitThisPagePlayground() {
         </>
       }
       preview={
-        <ExitThisPage
-          {...(text ? { text } : {})}
-          redirectUrl={redirectUrl}
-          activatedText={activatedText}
-          timedOutText={timedOutText}
-        />
+        <GovukPreview deps={[text, redirectUrl, activatedText, timedOutText]}>
+          <ExitThisPage
+            {...(text ? { text } : {})}
+            redirectUrl={redirectUrl}
+            activatedText={activatedText}
+            timedOutText={timedOutText}
+          />
+        </GovukPreview>
       }
     />
   );
