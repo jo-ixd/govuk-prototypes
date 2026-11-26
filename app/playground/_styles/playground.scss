@@ -1,0 +1,101 @@
+/* Playground chrome styles - these are not GOV.UK components, they style the
+   demo kit itself (example sections, control panels and preview areas). */
+
+.playground-example {
+  margin-bottom: 40px;
+}
+
+.playground-example__description {
+  margin-bottom: 10px;
+}
+
+.playground-example__demo {
+  background: #ffffff;
+  border: 1px solid #b1b4b6;
+  padding: 25px;
+  margin-bottom: 15px;
+}
+
+.playground-example__demo--dark {
+  background: #0b0c0c;
+  border-color: #0b0c0c;
+}
+
+.playground-example__code {
+  background: #f3f2f1;
+  border: 1px solid #b1b4b6;
+  padding: 15px;
+  overflow-x: auto;
+}
+
+.playground-controls {
+  border: 2px solid #1d70b8;
+  padding: 20px;
+  margin-bottom: 40px;
+}
+
+.playground-controls__grid {
+  display: flex;
+  gap: 25px;
+  flex-wrap: wrap;
+}
+
+.playground-controls__fields {
+  flex: 1 1 240px;
+  min-width: 220px;
+}
+
+.playground-controls__field {
+  margin-bottom: 10px;
+}
+
+.playground-controls__field .govuk-input,
+.playground-controls__field .govuk-select {
+  width: 100%;
+}
+
+.playground-preview {
+  flex: 2 1 320px;
+  min-width: 260px;
+  background: #f3f2f1;
+  border: 1px solid #b1b4b6;
+  padding: 20px;
+  align-self: flex-start;
+}
+
+.playground-preview--dark {
+  background: #0b0c0c;
+  border-color: #6f777b;
+}
+
+/* Index page card grids. A CSS grid rather than govuk-grid-row with
+   govuk-grid-column classes, so every card in a row is the same height and
+   the gutters between cards stay even. */
+.playground-index-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.playground-index-card {
+  display: block;
+  border: 1px solid #b1b4b6;
+  padding: 15px 20px;
+  text-decoration: none;
+  /* govuk-frontend only applies GDS Transport to its own classes, so text in
+     the demo kit chrome needs the font set explicitly - otherwise it renders
+     in the browser default serif. */
+  font-family: "GDS Transport", arial, sans-serif;
+}
+
+.playground-index-card:hover {
+  border-color: #1d70b8;
+}
+
+.playground-index-card__meta {
+  display: block;
+  margin-top: 5px;
+  color: #505a5f;
+  font-size: 16px;
+}

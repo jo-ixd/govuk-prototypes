@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import GovukInit from "@/app/components/govuk/GovukInit";
+import SkipLink from "@/app/components/govuk/SkipLink";
 import "./govuk.scss";
 import Script from "next/script";
 
@@ -39,6 +40,7 @@ export default function RootLayout({
           {"document.body.className += ' js-enabled' + ('noModule' in HTMLScriptElement.prototype ? ' govuk-frontend-supported' : '');"}
         </Script>
         <GovukInit />
+        <SkipLink text="Skip to main content" />
         {children}
       </body>
     </html>

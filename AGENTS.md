@@ -22,5 +22,4 @@ This version has breaking changes — APIs, conventions, and file structure may 
 
 ## Pull request rules
 
-- Titles follow the same plain english conventional commit style as commit messages, e.g. "feat: add date input component".
-- Descriptions are written in simple plain english and explain what was done (the change itself), not what you did.
+Follow `.github/PULL_REQUEST_TEMPLATE.md` and use a plain english PR title that explains what the feature is, not what you did.
