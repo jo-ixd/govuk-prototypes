@@ -27,8 +27,8 @@ export default function NamesPatternPage() {
           id="full-name"
           name="fullName"
           label={{ text: "Full name" }}
-          autocomplete="name"
-          spellcheck={false}
+          autoComplete="name"
+          spellCheck={false}
         />
         <Button text="Continue" />
       </Example>
@@ -41,15 +41,15 @@ export default function NamesPatternPage() {
           id="first-name"
           name="firstName"
           label={{ text: "First name" }}
-          autocomplete="given-name"
-          spellcheck={false}
+          autoComplete="given-name"
+          spellCheck={false}
         />
         <Input
           id="last-name"
           name="lastName"
           label={{ text: "Last name" }}
-          autocomplete="family-name"
-          spellcheck={false}
+          autoComplete="family-name"
+          spellCheck={false}
         />
         <Button text="Continue" />
       </Example>
@@ -62,8 +62,8 @@ export default function NamesPatternPage() {
           id="full-name-error"
           name="fullName"
           label={{ text: "Full name" }}
-          autocomplete="name"
-          spellcheck={false}
+          autoComplete="name"
+          spellCheck={false}
           errorMessage={{ text: "Enter your full name" }}
         />
         <Button text="Continue" />

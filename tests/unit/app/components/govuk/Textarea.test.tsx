@@ -38,8 +38,8 @@ describe("Textarea", () => {
       <Textarea
         name="more-detail"
         label={{ text: "More detail" }}
-        spellcheck={false}
-        autocomplete="street-address"
+        spellCheck={false}
+        autoComplete="street-address"
       />,
     );
     const textarea = screen.getByLabelText("More detail");

@@ -16,8 +16,8 @@ export type DateInputItem = {
   label?: string;
   value?: string | number;
   error?: boolean;
-  inputmode?: HTMLAttributes<HTMLInputElement>["inputMode"];
-  autocomplete?: string;
+  inputMode?: HTMLAttributes<HTMLInputElement>["inputMode"];
+  autoComplete?: string;
   pattern?: string;
   classes?: string;
   attributes?: Record<string, string | number | boolean>;
@@ -176,8 +176,8 @@ export default function DateInput({
             name={prefixedName}
             type="text"
             {...(value !== null ? { defaultValue: String(value) } : {})}
-            inputMode={item.inputmode ?? "numeric"}
-            autoComplete={item.autocomplete}
+            inputMode={item.inputMode ?? "numeric"}
+            autoComplete={item.autoComplete}
             pattern={item.pattern}
             {...item.attributes}
           />

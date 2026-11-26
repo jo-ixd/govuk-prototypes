@@ -33,8 +33,8 @@ export default function BankDetailsPatternPage() {
           id="name-on-the-account"
           name="nameOnTheAccount"
           label={{ text: "Name on the account" }}
-          autocomplete="name"
-          spellcheck={false}
+          autoComplete="name"
+          spellCheck={false}
         />
         <Input
           id="sort-code"
@@ -42,8 +42,8 @@ export default function BankDetailsPatternPage() {
           label={{ text: "Sort code" }}
           hint={{ text: "Must be 6 digits long, like 30-56-77" }}
           classes="govuk-input--width-5 govuk-input--extra-letter-spacing"
-          inputmode="numeric"
-          spellcheck={false}
+          inputMode="numeric"
+          spellCheck={false}
         />
         <Input
           id="account-number"
@@ -51,8 +51,8 @@ export default function BankDetailsPatternPage() {
           label={{ text: "Account number" }}
           hint={{ text: "Must be between 6 and 8 digits long" }}
           classes="govuk-input--width-10 govuk-input--extra-letter-spacing"
-          inputmode="numeric"
-          spellcheck={false}
+          inputMode="numeric"
+          spellCheck={false}
         />
         <Input
           id="roll-number"
@@ -60,7 +60,7 @@ export default function BankDetailsPatternPage() {
           label={{ text: "Building society roll number (if you have one)" }}
           hint={{ text: "You can find it on your card, statement or passbook" }}
           classes="govuk-input--width-10 govuk-input--extra-letter-spacing"
-          spellcheck={false}
+          spellCheck={false}
         />
         <Button text="Continue" />
       </Example>
@@ -76,8 +76,8 @@ export default function BankDetailsPatternPage() {
           hint={{ text: "Must be 6 digits long" }}
           classes="govuk-input--width-5 govuk-input--extra-letter-spacing"
           defaultValue="12"
-          inputmode="numeric"
-          spellcheck={false}
+          inputMode="numeric"
+          spellCheck={false}
           errorMessage={{ text: "Enter a valid sort code like 309430" }}
         />
       </Example>
@@ -129,7 +129,7 @@ export default function BankDetailsPatternPage() {
             text: "Must be between 8 and 11 characters long – you can ask your bank or check your bank statement",
           }}
           classes="govuk-input--width-10 govuk-input--extra-letter-spacing"
-          spellcheck={false}
+          spellCheck={false}
         />
         <Input
           id="iban"
@@ -137,7 +137,7 @@ export default function BankDetailsPatternPage() {
           label={{ text: "IBAN" }}
           hint={{ text: "You can ask your bank or check your bank statement" }}
           classes="govuk-input--extra-letter-spacing"
-          spellcheck={false}
+          spellCheck={false}
         />
       </Example>
     </>

@@ -36,7 +36,7 @@ export default function QuestionPagesPage() {
               classes: "govuk-label--l",
             }}
             classes="govuk-input--width-10"
-            autocomplete="postal-code"
+            autoComplete="postal-code"
           />
           <Button text="Continue" />
         </form>

@@ -35,7 +35,7 @@ export type CharacterCountProps = CommonProps & {
   hint?: FieldHint;
   errorMessage?: FieldErrorMessage;
   formGroup?: CharacterCountFormGroup;
-  spellcheck?: boolean;
+  spellCheck?: boolean;
   countMessage?: {
     classes?: string;
   };
@@ -84,7 +84,7 @@ export default function CharacterCount({
   hint,
   errorMessage,
   formGroup,
-  spellcheck,
+  spellCheck,
   countMessage,
   textareaDescriptionText,
   charactersUnderLimitText,
@@ -167,7 +167,7 @@ export default function CharacterCount({
       rows={rows}
       value={value}
       defaultValue={defaultValue}
-      spellcheck={spellcheck}
+      spellCheck={spellCheck}
       label={label}
       hint={hint}
       errorMessage={errorMessage}

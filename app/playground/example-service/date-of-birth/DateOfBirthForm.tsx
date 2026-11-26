@@ -75,9 +75,9 @@ export default function DateOfBirthForm() {
           }}
           hint={{ text: "For example, 27 3 2007" }}
           errorMessage={error !== null ? { text: error } : null}
-          day={{ name: "day", value: initialDay, autocomplete: "bday-day" }}
-          month={{ name: "month", value: initialMonth, autocomplete: "bday-month" }}
-          year={{ name: "year", value: initialYear, autocomplete: "bday-year" }}
+          day={{ name: "day", value: initialDay, autoComplete: "bday-day" }}
+          month={{ name: "month", value: initialMonth, autoComplete: "bday-month" }}
+          year={{ name: "year", value: initialYear, autoComplete: "bday-year" }}
         />
         <Button text="Continue" />
       </form>

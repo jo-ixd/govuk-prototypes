@@ -40,7 +40,7 @@ export default function PasswordsPatternPage() {
           name="createPassword"
           label={{ text: "Create a password" }}
           hint={passwordRulesHint}
-          autocomplete="new-password"
+          autoComplete="new-password"
         />
         <Button text="Continue" />
       </Example>
@@ -54,7 +54,7 @@ export default function PasswordsPatternPage() {
           name="createPasswordDisclosure"
           label={{ text: "Create a password" }}
           hint={passwordRulesHint}
-          autocomplete="new-password"
+          autoComplete="new-password"
         />
         <Details
           summaryText="Why we ask for this"
@@ -74,7 +74,7 @@ export default function PasswordsPatternPage() {
           hint={passwordRulesHint}
           defaultValue="abc"
           errorMessage={{ text: "Your password must be at least 8 characters" }}
-          autocomplete="new-password"
+          autoComplete="new-password"
         />
         <Button text="Continue" />
       </Example>

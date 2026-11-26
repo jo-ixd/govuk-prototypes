@@ -76,17 +76,17 @@ export default function DateInputPage() {
             {
               name: "day",
               classes: "govuk-input--width-2",
-              autocomplete: "bday-day",
+              autoComplete: "bday-day",
             },
             {
               name: "month",
               classes: "govuk-input--width-2",
-              autocomplete: "bday-month",
+              autoComplete: "bday-month",
             },
             {
               name: "year",
               classes: "govuk-input--width-4",
-              autocomplete: "bday-year",
+              autoComplete: "bday-year",
             },
           ]}
         />
@@ -98,7 +98,7 @@ export default function DateInputPage() {
       >
         <DateInput
           id="with-custom-inputmode"
-          items={[{ name: "day", pattern: "[0-9X]*", inputmode: "text" }]}
+          items={[{ name: "day", pattern: "[0-9X]*", inputMode: "text" }]}
         />
       </Example>
 

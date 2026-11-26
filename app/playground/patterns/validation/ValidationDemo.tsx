@@ -151,7 +151,7 @@ export default function ValidationDemo() {
           id="full-name"
           name="full-name"
           label={{ text: "Full name" }}
-          autocomplete="name"
+          autoComplete="name"
           {...(fieldErrors.fullName !== null
             ? { errorMessage: { text: fieldErrors.fullName } }
             : {})}
@@ -161,7 +161,7 @@ export default function ValidationDemo() {
           name="email"
           type="email"
           label={{ text: "Email address" }}
-          autocomplete="email"
+          autoComplete="email"
           {...(fieldErrors.email !== null
             ? { errorMessage: { text: fieldErrors.email } }
             : {})}

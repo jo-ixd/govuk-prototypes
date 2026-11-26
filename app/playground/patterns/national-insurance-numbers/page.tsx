@@ -32,8 +32,8 @@ export default function NationalInsuranceNumbersPatternPage() {
             text: "It’s on your National Insurance card, benefit letter, payslip or P60 – for example, ‘QQ 12 34 56 C’",
           }}
           classes={NINO_CLASSES}
-          autocapitalize="characters"
-          spellcheck={false}
+          autoCapitalize="characters"
+          spellCheck={false}
         />
         <Button text="Continue" />
       </Example>
@@ -50,8 +50,8 @@ export default function NationalInsuranceNumbersPatternPage() {
             text: "It’s on your National Insurance card, benefit letter, payslip or P60 – for example, ‘QQ 12 34 56 C’",
           }}
           classes={NINO_CLASSES}
-          autocapitalize="characters"
-          spellcheck={false}
+          autoCapitalize="characters"
+          spellCheck={false}
           defaultValue="12345678"
           errorMessage={{
             text: "Enter a National Insurance number in the correct format",

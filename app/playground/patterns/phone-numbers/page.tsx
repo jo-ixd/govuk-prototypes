@@ -43,7 +43,7 @@ export default function PhoneNumbersPatternPage() {
           label={{ text: "UK mobile number" }}
           hint={{ text: "For example, 07700 900982" }}
           classes="govuk-input--width-20"
-          autocomplete="tel"
+          autoComplete="tel"
         />
         <Button text="Continue" />
       </Example>
@@ -59,7 +59,7 @@ export default function PhoneNumbersPatternPage() {
           label={{ text: "UK phone number" }}
           hint={{ text: "For example, 01632 960 001" }}
           classes="govuk-input--width-20"
-          autocomplete="tel"
+          autoComplete="tel"
         />
         <Button text="Continue" />
       </Example>
@@ -75,7 +75,7 @@ export default function PhoneNumbersPatternPage() {
           label={{ text: "Phone number" }}
           hint={{ text: "For international numbers include the country code" }}
           classes="govuk-input--width-20"
-          autocomplete="tel"
+          autoComplete="tel"
         />
         <Button text="Continue" />
       </Example>
@@ -101,7 +101,7 @@ export default function PhoneNumbersPatternPage() {
               label={{ text: "Phone number" }}
               hint={{ text: "Do not include the country code" }}
               classes="govuk-input--width-20"
-              autocomplete="tel"
+              autoComplete="tel"
             />
           </div>
         </div>
@@ -118,7 +118,7 @@ export default function PhoneNumbersPatternPage() {
           type="tel"
           label={{ text: "UK phone number" }}
           classes="govuk-input--width-20"
-          autocomplete="tel"
+          autoComplete="tel"
           errorMessage={{ text: "Enter a UK phone number" }}
         />
         <Button text="Continue" />

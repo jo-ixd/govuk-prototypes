@@ -37,9 +37,9 @@ describe("DateInput", () => {
     render(
       <DateInput
         id="dob"
-        day={{ name: "day", autocomplete: "bday-day" }}
-        month={{ name: "month", autocomplete: "bday-month" }}
-        year={{ name: "year", autocomplete: "bday-year" }}
+        day={{ name: "day", autoComplete: "bday-day" }}
+        month={{ name: "month", autoComplete: "bday-month" }}
+        year={{ name: "year", autoComplete: "bday-year" }}
       />,
     );
     expect(screen.getByLabelText("Day")).toHaveAttribute("autocomplete", "bday-day");

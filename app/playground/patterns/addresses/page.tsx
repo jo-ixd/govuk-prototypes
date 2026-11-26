@@ -25,20 +25,20 @@ function AddressFields({
         id={`${idPrefix}-address-line-1`}
         name={`${namePrefix}Line1`}
         label={{ text: "Address line 1" }}
-        autocomplete="address-line1"
+        autoComplete="address-line1"
       />
       <Input
         id={`${idPrefix}-address-line-2`}
         name={`${namePrefix}Line2`}
         label={{ text: "Address line 2 (optional)" }}
-        autocomplete="address-line2"
+        autoComplete="address-line2"
       />
       <Input
         id={`${idPrefix}-town`}
         name={`${namePrefix}Town`}
         label={{ text: "Town or city" }}
         classes="govuk-!-width-two-thirds"
-        autocomplete="address-level2"
+        autoComplete="address-level2"
       />
       <Input
         id={`${idPrefix}-county`}
@@ -51,7 +51,7 @@ function AddressFields({
         name={`${namePrefix}Postcode`}
         label={{ text: "Postcode" }}
         classes="govuk-input--width-10"
-        autocomplete="postal-code"
+        autoComplete="postal-code"
       />
     </>
   );
@@ -99,7 +99,7 @@ export default function AddressesPatternPage() {
           name="lookupPostcode"
           label={{ text: "Postcode" }}
           classes="govuk-input--width-10"
-          autocomplete="postal-code"
+          autoComplete="postal-code"
         />
         <Button text="Find address" />
         <Details
@@ -123,7 +123,7 @@ export default function AddressesPatternPage() {
           label={{ text: "Postcode" }}
           classes="govuk-input--width-10"
           defaultValue="SW1A 2AA"
-          autocomplete="postal-code"
+          autoComplete="postal-code"
         />
         <Button text="Find address" />
         <p className="govuk-body-s">
@@ -171,13 +171,13 @@ export default function AddressesPatternPage() {
             errorMessage={{
               text: "Enter address line 1, typically the building and street",
             }}
-            autocomplete="address-line1"
+            autoComplete="address-line1"
           />
           <Input
             id="error-address-line-2"
             name="errorAddressLine2"
             label={{ text: "Address line 2 (optional)" }}
-            autocomplete="address-line2"
+            autoComplete="address-line2"
           />
           <Input
             id="error-town"
@@ -185,7 +185,7 @@ export default function AddressesPatternPage() {
             label={{ text: "Town or city" }}
             classes="govuk-!-width-two-thirds"
             errorMessage={{ text: "Enter town or city" }}
-            autocomplete="address-level2"
+            autoComplete="address-level2"
           />
           <Input
             id="error-county"
@@ -199,7 +199,7 @@ export default function AddressesPatternPage() {
             label={{ text: "Postcode" }}
             classes="govuk-input--width-10"
             errorMessage={{ text: "Enter postcode" }}
-            autocomplete="postal-code"
+            autoComplete="postal-code"
           />
         </Fieldset>
       </Example>
@@ -215,7 +215,7 @@ export default function AddressesPatternPage() {
           classes="govuk-input--width-10"
           defaultValue="Not a postcode"
           errorMessage={{ text: "Enter a full UK postcode" }}
-          autocomplete="postal-code"
+          autoComplete="postal-code"
         />
       </Example>
 
@@ -234,7 +234,7 @@ export default function AddressesPatternPage() {
           name="internationalAddress"
           label={{ text: "What is your address?" }}
           rows={5}
-          autocomplete="street-address"
+          autoComplete="street-address"
         />
         <Button text="Continue" />
       </Example>

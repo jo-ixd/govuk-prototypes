@@ -68,7 +68,7 @@ export default function NameForm() {
           }}
           hint={{ text: "For example, Sarah Jacobs" }}
           defaultValue={initialName}
-          autocomplete="name"
+          autoComplete="name"
           {...(error !== null ? { errorMessage: { text: error } } : {})}
         />
         <Button text="Continue" />

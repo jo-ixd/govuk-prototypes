@@ -127,11 +127,11 @@ describe("Input", () => {
 
   it("writes spellcheck as a string attribute like the njk macros", () => {
     const { rerender } = render(
-      <Input name="notes" label={{ text: "Notes" }} spellcheck />,
+      <Input name="notes" label={{ text: "Notes" }} spellCheck />,
     );
     expect(screen.getByLabelText("Notes")).toHaveAttribute("spellcheck", "true");
 
-    rerender(<Input name="notes" label={{ text: "Notes" }} spellcheck={false} />);
+    rerender(<Input name="notes" label={{ text: "Notes" }} spellCheck={false} />);
     expect(screen.getByLabelText("Notes")).toHaveAttribute("spellcheck", "false");
   });
 
@@ -140,10 +140,10 @@ describe("Input", () => {
       <Input
         name="email"
         label={{ text: "Email" }}
-        autocomplete="email"
-        autocapitalize="none"
+        autoComplete="email"
+        autoCapitalize="none"
         pattern="[a-z]*"
-        inputmode="email"
+        inputMode="email"
         placeholder="you@example.com"
       />,
     );

@@ -31,8 +31,8 @@ export default function EmailAddressesPatternPage() {
           type="email"
           label={{ text: "Email address" }}
           hint={{ text: "We’ll only use this to send you a receipt" }}
-          autocomplete="email"
-          spellcheck={false}
+          autoComplete="email"
+          spellCheck={false}
         />
         <Button text="Continue" />
       </Example>
@@ -65,8 +65,8 @@ export default function EmailAddressesPatternPage() {
                     hint={{
                       text: "We’ll only use this to send you a confirmation",
                     }}
-                    autocomplete="email"
-                    spellcheck={false}
+                    autoComplete="email"
+                    spellCheck={false}
                   />
                 ),
               },
@@ -88,8 +88,8 @@ export default function EmailAddressesPatternPage() {
           label={{ text: "Email address" }}
           hint={{ text: "We’ll only use this to send you a receipt" }}
           defaultValue="Not an email address"
-          autocomplete="email"
-          spellcheck={false}
+          autoComplete="email"
+          spellCheck={false}
           errorMessage={{
             text: "Enter an email address in the correct format, like name@example.com",
           }}

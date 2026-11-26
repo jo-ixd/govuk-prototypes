@@ -29,14 +29,14 @@ export type TextareaProps = CommonProps & {
   rows?: number;
   value?: string;
   defaultValue?: string;
-  spellcheck?: boolean;
+  spellCheck?: boolean;
   disabled?: boolean;
   describedBy?: string;
   label: FieldLabel;
   hint?: FieldHint;
   errorMessage?: FieldErrorMessage;
   formGroup?: TextareaFormGroup;
-  autocomplete?: string;
+  autoComplete?: string;
 };
 
 function describedIds(...ids: (string | null)[]): string | null {
@@ -50,14 +50,14 @@ export default function Textarea({
   rows = 5,
   value,
   defaultValue,
-  spellcheck,
+  spellCheck,
   disabled,
   describedBy,
   label,
   hint,
   errorMessage,
   formGroup,
-  autocomplete,
+  autoComplete,
   classes,
   attributes,
 }: TextareaProps) {
@@ -70,14 +70,8 @@ export default function Textarea({
     errorMessage ? `${id}-error` : null,
   );
 
-  // React 19's server renderer writes lesser-known props verbatim, so HTML
-  // attributes are passed as lowercase keys — including spellcheck as a
-  // string, matching the njk output of spellcheck="true"/"false".
-  const fieldAttributes: Record<string, string | number | boolean> = {};
-  const spellcheckProp = spellcheck ?? null;
-  if (spellcheckProp !== null) fieldAttributes.spellcheck = String(spellcheckProp);
-  if (autocomplete) fieldAttributes.autocomplete = autocomplete;
-
+  // React maps the camelCase props onto the lowercase HTML attributes, and
+  // writes spellCheck as spellcheck="true"/"false", matching the njk output.
   return (
     <div
       className={govukClasses(
@@ -113,8 +107,9 @@ export default function Textarea({
         value={value}
         defaultValue={defaultValue}
         disabled={disabled}
+        spellCheck={spellCheck}
+        autoComplete={autoComplete}
         aria-describedby={describedByIds ?? undefined}
-        {...fieldAttributes}
         {...attributes}
       />
       {formGroup?.afterInput ? (

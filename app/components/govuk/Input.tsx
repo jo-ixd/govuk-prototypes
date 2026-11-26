@@ -40,10 +40,10 @@ export type InputProps = CommonProps & {
   suffix?: InputAffix;
   formGroup?: InputFormGroup;
   inputWrapper?: CommonProps;
-  autocomplete?: string;
-  autocapitalize?: string;
+  autoComplete?: string;
+  autoCapitalize?: string;
   pattern?: string;
-  inputmode?:
+  inputMode?:
     | "none"
     | "text"
     | "tel"
@@ -52,7 +52,7 @@ export type InputProps = CommonProps & {
     | "numeric"
     | "decimal"
     | "search";
-  spellcheck?: boolean;
+  spellCheck?: boolean;
   placeholder?: string;
 };
 
@@ -80,11 +80,11 @@ export default function Input({
   suffix,
   formGroup,
   inputWrapper,
-  autocomplete,
-  autocapitalize,
+  autoComplete,
+  autoCapitalize,
   pattern,
-  inputmode,
-  spellcheck,
+  inputMode,
+  spellCheck,
   placeholder,
   classes,
   attributes,
@@ -117,18 +117,8 @@ export default function Input({
       .join(" "),
   );
 
-  // React 19's server renderer writes lesser-known props verbatim, so HTML
-  // attributes are passed as lowercase keys — including spellcheck as a
-  // string, matching the njk output of spellcheck="true"/"false".
-  const fieldAttributes: Record<string, string | number | boolean> = {};
-  const spellcheckProp = spellcheck ?? null;
-  if (spellcheckProp !== null) fieldAttributes.spellcheck = String(spellcheckProp);
-  if (autocomplete) fieldAttributes.autocomplete = autocomplete;
-  if (autocapitalize) fieldAttributes.autocapitalize = autocapitalize;
-  if (pattern) fieldAttributes.pattern = pattern;
-  if (inputmode) fieldAttributes.inputmode = inputmode;
-  if (placeholder) fieldAttributes.placeholder = placeholder;
-
+  // React maps the camelCase props onto the lowercase HTML attributes, and
+  // writes spellCheck as spellcheck="true"/"false", matching the njk output.
   const inputElement = (
     <input
       className={inputClasses}
@@ -138,8 +128,13 @@ export default function Input({
       value={value}
       defaultValue={defaultValue}
       disabled={disabled}
+      autoComplete={autoComplete}
+      autoCapitalize={autoCapitalize}
+      pattern={pattern}
+      inputMode={inputMode}
+      spellCheck={spellCheck}
+      placeholder={placeholder}
       aria-describedby={describedByIds ?? undefined}
-      {...fieldAttributes}
       {...attributes}
     />
   );

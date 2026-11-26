@@ -32,7 +32,7 @@ export type PasswordInputProps = CommonProps & {
   hint?: FieldHint;
   errorMessage?: FieldErrorMessage;
   formGroup?: PasswordInputFormGroup;
-  autocomplete?: string;
+  autoComplete?: string;
   showPasswordText?: string;
   hidePasswordText?: string;
   showPasswordAriaLabelText?: string;
@@ -64,7 +64,7 @@ export default function PasswordInput({
   hint,
   errorMessage,
   formGroup,
-  autocomplete,
+  autoComplete,
   showPasswordText,
   hidePasswordText,
   showPasswordAriaLabelText,
@@ -124,9 +124,9 @@ export default function PasswordInput({
       label={label}
       hint={hint}
       errorMessage={errorMessage}
-      autocomplete={autocomplete ?? "current-password"}
-      spellcheck={false}
-      autocapitalize="none"
+      autoComplete={autoComplete ?? "current-password"}
+      spellCheck={false}
+      autoCapitalize="none"
       classes={govukClasses(
         "govuk-password-input__input govuk-js-password-input-input",
         classes,
