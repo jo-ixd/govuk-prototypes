@@ -52,7 +52,7 @@ The pattern pages under `app/playground/patterns` are the templates to copy: a q
 
 ## Design views
 
-Design prototypes live in `app/views`, like the views folder in the GOV.UK Prototype Kit. Any folder with a `page.tsx` file is served at `/views/<folder-name>` and listed on the `/views` index automatically, so dropping in a new prototype is all it takes. `app/views/example-view` is a minimal prototype to copy: a back link, a question as the page heading, and a Continue button that submits to the page itself.
+Design prototypes live in `app/views`, like the views folder in the GOV.UK Prototype Kit. Any folder with a `page.tsx` file is served at `/views/<folder-name>` and listed on the `/views` index automatically, so dropping in a new prototype is all it takes. New prototypes appear immediately in dev mode; a production build includes them at build time, like any other route. `app/views/example-view` is a minimal prototype to copy: a back link, a question as the page heading, and a Continue button that submits to the page itself.
 
 ## Commands
 
