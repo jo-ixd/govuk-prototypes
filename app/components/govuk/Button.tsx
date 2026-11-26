@@ -55,7 +55,7 @@ export default function Button({
   const content: ReactNode =
     html && isStartButton ? <span>{html}</span> : (html ?? text);
 
-  if (href || element === "a") {
+  if (isStartButton || href || element === "a") {
     return (
       <a
         href={href || "#"}

@@ -54,11 +54,12 @@ describe("Button", () => {
     );
   });
 
-  it("adds the start button styling and icon", () => {
+  it("always renders a start button as a link with the styling and icon", () => {
     render(<Button text="Start now" isStartButton />);
-    const button = screen.getByRole("button", { name: "Start now" });
-    expect(button).toHaveClass("govuk-button", "govuk-button--start");
-    const icon = button.querySelector(".govuk-button__start-icon");
+    const link = screen.getByRole("button", { name: "Start now" });
+    expect(link.tagName).toBe("A");
+    expect(link).toHaveClass("govuk-button", "govuk-button--start");
+    const icon = link.querySelector(".govuk-button__start-icon");
     expect(icon?.tagName.toLowerCase()).toBe("svg");
   });
 

@@ -69,17 +69,10 @@ export default function ButtonPage() {
 
       <Example
         title="Start"
-        description="The main call to action on a service's start page."
-      >
-        <Button text="Start now button" isStartButton />
-      </Example>
-
-      <Example
-        title="Start link"
-        description="A start button rendered as a link."
+        description="The main call to action on a service's start page. Start buttons are always links, since they take users to the first page of a service."
       >
         <Button
-          text="Start now link button"
+          text="Start now"
           href="/playground/components/button"
           isStartButton
         />

@@ -71,7 +71,7 @@ export default function ButtonPlayground() {
         <Button
           text={text}
           element={element}
-          {...(element === "a" ? { href: "#content" } : {})}
+          {...(element === "a" || isStartButton ? { href: "#content" } : {})}
           classes={variantClasses[variant]}
           disabled={disabled}
           isStartButton={isStartButton}
