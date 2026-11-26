@@ -27,7 +27,7 @@ export default function PageNotFoundPagesPage() {
 
       <Example
         title="Standard page not found"
-        description="Use 'Page not found' as the H1, with contact information if it exists and helps meet a user need. Include 'Page not found - service name - GOV.UK' as the page title. This playground's app-level custom not-found page is coming; this shows the in-service version of the pattern."
+        description="Use 'Page not found' as the H1, with contact information if it exists and helps meet a user need. Include 'Page not found - service name - GOV.UK' as the page title. The app-level not-found page for any unknown URL in this prototype follows this standard pattern."
       >
         <h1 className="govuk-heading-l">Page not found</h1>
         <p className="govuk-body">
@@ -47,7 +47,7 @@ export default function PageNotFoundPagesPage() {
 
       <Example
         title="Panel variant with links home"
-        description="A composed variant that uses a panel to carry the guidance, followed by a paragraph and links to help the user get back on track. The app-level custom not-found page for the whole playground is coming separately."
+        description="A composed variant that uses a panel to carry the guidance, followed by a paragraph and links to help the user get back on track."
       >
         <Panel
           classes="govuk-panel--interruption"
