@@ -14,10 +14,12 @@ export const metadata: Metadata = {
   title: "Example view - Design views",
 };
 
-export default async function ExampleViewPage(
-  props: PageProps<"/views/example-view">,
-) {
-  const { name } = await props.searchParams;
+type PageProps = {
+  searchParams: Promise<Record<string, string | string[] | null | undefined>>;
+};
+
+export default async function ExampleViewPage({ searchParams }: PageProps) {
+  const { name } = await searchParams;
   const enteredName = Array.isArray(name) ? name[0] : name;
 
   return (
