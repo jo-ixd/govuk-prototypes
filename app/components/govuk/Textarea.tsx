@@ -109,7 +109,7 @@ export default function Textarea({
         disabled={disabled}
         spellCheck={spellCheck}
         autoComplete={autoComplete}
-        aria-describedby={describedByIds ?? undefined}
+        {...(describedByIds ? { "aria-describedby": describedByIds } : {})}
         {...attributes}
       />
       {formGroup?.afterInput ? (

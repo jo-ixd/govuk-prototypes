@@ -130,7 +130,7 @@ export default function Select({
         id={id}
         name={name}
         disabled={disabled}
-        aria-describedby={describedByIds ?? undefined}
+        {...(describedByIds ? { "aria-describedby": describedByIds } : {})}
         {...(selectedDefaultValue !== null
           ? { defaultValue: selectedDefaultValue }
           : {})}

@@ -118,7 +118,7 @@ export default function FileUpload({
       type="file"
       disabled={disabled}
       multiple={multiple}
-      aria-describedby={describedByIds ?? undefined}
+      {...(describedByIds ? { "aria-describedby": describedByIds } : {})}
       {...attributes}
     />
   );

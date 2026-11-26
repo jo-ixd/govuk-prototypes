@@ -134,7 +134,7 @@ export default function Input({
       inputMode={inputMode}
       spellCheck={spellCheck}
       placeholder={placeholder}
-      aria-describedby={describedByIds ?? undefined}
+      {...(describedByIds ? { "aria-describedby": describedByIds } : {})}
       {...attributes}
     />
   );
