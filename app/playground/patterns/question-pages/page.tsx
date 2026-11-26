@@ -48,8 +48,11 @@ export default function QuestionPagesPage() {
       >
         <BackLink text="Back" href="#" />
         <form noValidate>
+          {/* The working demo below repeats this question, so the static
+              example needs its own id prefix to keep every id unique. */}
           <Radios
             name="where-do-you-live"
+            idPrefix="where-do-you-live-example"
             fieldset={{
               legend: {
                 text: "Where do you live?",

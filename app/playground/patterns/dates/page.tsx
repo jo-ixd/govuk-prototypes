@@ -120,8 +120,8 @@ export default function DatesPatternPage() {
           <div className="govuk-date-input">
             <div className="govuk-date-input__item">
               <Select
-                id="dob-day"
-                name="dob-day"
+                id="dob-select-day"
+                name="dob-select-day"
                 label={{
                   text: "Day",
                   classes: "govuk-date-input__label",
@@ -132,8 +132,8 @@ export default function DatesPatternPage() {
             </div>
             <div className="govuk-date-input__item">
               <Select
-                id="dob-month"
-                name="dob-month"
+                id="dob-select-month"
+                name="dob-select-month"
                 label={{
                   text: "Month",
                   classes: "govuk-date-input__label",
@@ -144,8 +144,8 @@ export default function DatesPatternPage() {
             </div>
             <div className="govuk-date-input__item">
               <Select
-                id="dob-year"
-                name="dob-year"
+                id="dob-select-year"
+                name="dob-select-year"
                 label={{
                   text: "Year",
                   classes: "govuk-date-input__label",
