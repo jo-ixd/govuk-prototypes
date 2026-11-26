@@ -22,10 +22,19 @@ test.describe("static assets and error pages", () => {
     await expect(
       page.getByRole("heading", { name: "Page not found" }),
     ).toBeVisible();
-    // The "Back to the playground" call to action is a link rendered with
-    // button semantics, so it carries the button role with an href.
+
+    // The 404 is a full GOV.UK page framed by the header and footer, not a
+    // bare confirmation panel floating on its own.
+    await expect(page.locator(".govuk-header")).toBeVisible();
+    await expect(page.locator(".govuk-footer")).toBeVisible();
+
+    // Inline links in the guidance point back to the homepage and playground.
+    await expect(page.getByRole("link", { name: "homepage" })).toHaveAttribute(
+      "href",
+      "/",
+    );
     await expect(
-      page.getByRole("button", { name: "Back to the playground" }),
+      page.getByRole("link", { name: "playground" }),
     ).toHaveAttribute("href", "/playground");
   });
 });

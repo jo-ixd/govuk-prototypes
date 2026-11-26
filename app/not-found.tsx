@@ -4,7 +4,7 @@ import Footer from "@/app/components/govuk/Footer";
 import Header from "@/app/components/govuk/Header";
 
 export const metadata: Metadata = {
-  title: "Page not found - GOV.UK Playground",
+  title: "Page not found - GOV.UK Prototype Kit",
 };
 
 export default function NotFound() {
@@ -20,19 +20,15 @@ export default function NotFound() {
           <div className="govuk-grid-row">
             <div className="govuk-grid-column-two-thirds">
               <h1 className="govuk-heading-l">Page not found</h1>
-
               <p className="govuk-body">
                 If you typed the web address, check it is correct.
               </p>
-
               <p className="govuk-body">
                 If you pasted the web address, check you copied the entire
                 address.
               </p>
-
               <p className="govuk-body">
-                If the web address is correct or you selected a link or button,
-                go back to the{" "}
+                Go back to the{" "}
                 <Link className="govuk-link" href="/">
                   homepage
                 </Link>{" "}
@@ -49,8 +45,14 @@ export default function NotFound() {
       <Footer
         meta={{
           items: [
-            { text: "GOV.UK Design System", href: "https://design-system.service.gov.uk/" },
-            { text: "govuk-frontend on GitHub", href: "https://github.com/alphagov/govuk-frontend" },
+            {
+              text: "GOV.UK Design System",
+              href: "https://design-system.service.gov.uk/",
+            },
+            {
+              text: "govuk-frontend on GitHub",
+              href: "https://github.com/alphagov/govuk-frontend",
+            },
           ],
         }}
       />
