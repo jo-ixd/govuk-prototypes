@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Checkboxes from "@/app/components/govuk/Checkboxes";
+import GovukPreview from "@/app/playground/_components/GovukPreview";
 import {
   ControlCheckbox,
   ControlPanel,
@@ -43,29 +44,31 @@ export default function CheckboxesPlayground() {
         </>
       }
       preview={
-        <Checkboxes
-          name="playground-checkboxes"
-          fieldset={{ legend: { text: legend } }}
-          hint={showHint ? { text: "Select all that apply" } : null}
-          errorMessage={
-            showError ? { text: "Please select an option" } : null
-          }
-          classes={checkboxClasses}
-          values={preChecked ? ["waste-animal"] : []}
-          items={[
-            {
-              value: "waste-animal",
-              text: "Waste from animal carcasses",
-            },
-            { value: "waste-mines", text: "Waste from mines or quarries" },
-            {
-              value: "waste-farm",
-              text: "Farm or agricultural waste",
-            },
-            { divider: "or" },
-            { value: "none", text: "None of these", behaviour: "exclusive" },
-          ]}
-        />
+        <GovukPreview deps={[legend, showHint, showError, small, preChecked]}>
+          <Checkboxes
+            name="playground-checkboxes"
+            fieldset={{ legend: { text: legend } }}
+            hint={showHint ? { text: "Select all that apply" } : null}
+            errorMessage={
+              showError ? { text: "Please select an option" } : null
+            }
+            classes={checkboxClasses}
+            values={preChecked ? ["waste-animal"] : []}
+            items={[
+              {
+                value: "waste-animal",
+                text: "Waste from animal carcasses",
+              },
+              { value: "waste-mines", text: "Waste from mines or quarries" },
+              {
+                value: "waste-farm",
+                text: "Farm or agricultural waste",
+              },
+              { divider: "or" },
+              { value: "none", text: "None of these", behaviour: "exclusive" },
+            ]}
+          />
+        </GovukPreview>
       }
     />
   );

@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import DateInput from "@/app/components/govuk/DateInput";
+import GovukPreview from "@/app/playground/_components/GovukPreview";
 import {
   ControlCheckbox,
   ControlPanel,
@@ -37,17 +38,17 @@ export default function DateInputPlayground() {
         </>
       }
       preview={
-        <DateInput
-          id="playground-date-input"
-          fieldset={{ legend: { text: legend } }}
-          hint={showHint ? { text: "For example, 31 3 1980" } : null}
-          errorMessage={
-            showError ? { text: "Enter a complete date of birth" } : null
-          }
-          values={
-            prefill ? { day: "31", month: "3", year: "1980" } : {}
-          }
-        />
+        <GovukPreview deps={[legend, showHint, showError, prefill]}>
+          <DateInput
+            id="playground-date-input"
+            fieldset={{ legend: { text: legend } }}
+            hint={showHint ? { text: "For example, 31 3 1980" } : null}
+            errorMessage={
+              showError ? { text: "Enter a complete date of birth" } : null
+            }
+            values={prefill ? { day: "31", month: "3", year: "1980" } : {}}
+          />
+        </GovukPreview>
       }
     />
   );

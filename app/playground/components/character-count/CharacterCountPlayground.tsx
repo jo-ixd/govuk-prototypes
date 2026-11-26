@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import CharacterCount from "@/app/components/govuk/CharacterCount";
+import GovukPreview from "@/app/playground/_components/GovukPreview";
 import {
   ControlPanel,
   ControlSelect,
@@ -49,15 +50,17 @@ export default function CharacterCountPlayground() {
         </>
       }
       preview={
-        <CharacterCount
-          id="character-count-playground"
-          name="playground"
-          {...(mode === "characters" && validLimit !== null ? { maxlength: validLimit } : {})}
-          {...(mode === "words" && validLimit !== null ? { maxwords: validLimit } : {})}
-          label={{ text: labelText }}
-          {...(hintText ? { hint: { text: hintText } } : {})}
-          {...(errorText ? { errorMessage: { text: errorText } } : {})}
-        />
+        <GovukPreview deps={[labelText, mode, limit, hintText, errorText]}>
+          <CharacterCount
+            id="character-count-playground"
+            name="playground"
+            {...(mode === "characters" && validLimit !== null ? { maxlength: validLimit } : {})}
+            {...(mode === "words" && validLimit !== null ? { maxwords: validLimit } : {})}
+            label={{ text: labelText }}
+            {...(hintText ? { hint: { text: hintText } } : {})}
+            {...(errorText ? { errorMessage: { text: errorText } } : {})}
+          />
+        </GovukPreview>
       }
     />
   );
