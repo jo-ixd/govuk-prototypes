@@ -7,7 +7,7 @@ on:
   pull_request_review_comment:
     types: [created]
 
-# Shares its concurrency group with the push-triggered review workflow so a
+# Shares its concurrency group with the automatic review workflow so a
 # comment review supersedes any whole-PR review already in flight - only one
 # agent review runs per PR at a time, and the newest trigger wins.
 concurrency:
