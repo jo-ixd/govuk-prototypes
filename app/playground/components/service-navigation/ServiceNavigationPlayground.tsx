@@ -74,7 +74,7 @@ export default function ServiceNavigationPlayground() {
           serviceName={serviceName}
           serviceUrl={serviceUrl}
           menuButtonText={menuButtonText}
-          navigationLabel={navigationLabel}
+          {...(navigationLabel ? { navigationLabel } : {})}
           {...(collapse === "auto"
             ? {}
             : { collapseNavigationOnMobile: collapse === "true" })}
