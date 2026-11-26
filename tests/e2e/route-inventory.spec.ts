@@ -13,13 +13,16 @@ function discoverRoutes(parent: string): string[] {
 const componentRoutes = discoverRoutes("app/playground/components");
 const patternRoutes = discoverRoutes("app/playground/patterns");
 const serviceRoutes = discoverRoutes("app/playground/example-service");
+const viewRoutes = discoverRoutes("app/views");
 
 const allRoutes = [
   "/",
   "/playground",
+  "/views",
   ...componentRoutes,
   ...patternRoutes,
   ...serviceRoutes,
+  ...viewRoutes,
 ];
 
 if (componentRoutes.length !== 36) {
