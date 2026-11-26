@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Accordion from "@/app/components/govuk/Accordion";
+import GovukPreview from "@/app/playground/_components/GovukPreview";
 import {
   ControlCheckbox,
   ControlPanel,
@@ -66,23 +67,34 @@ export default function AccordionPlayground() {
         </>
       }
       preview={
-        <Accordion
-          headingLevel={Number(headingLevel) as 1 | 2 | 3 | 4 | 5 | 6}
-          rememberExpanded={rememberExpanded}
-          items={[
-            {
-              heading: { text: firstHeading },
-              summary: { text: firstSummary },
-              content: { text: firstContent },
-              expanded: firstExpanded,
-            },
-            {
-              heading: { text: "Knowing who your users are" },
-              summary: { text: "Understand your users and their needs" },
-              content: { text: "You need to know who your users are and what they need from your service." },
-            },
+        <GovukPreview
+          deps={[
+            firstHeading,
+            firstSummary,
+            firstContent,
+            firstExpanded,
+            headingLevel,
+            rememberExpanded,
           ]}
-        />
+        >
+          <Accordion
+            headingLevel={Number(headingLevel) as 1 | 2 | 3 | 4 | 5 | 6}
+            rememberExpanded={rememberExpanded}
+            items={[
+              {
+                heading: { text: firstHeading },
+                summary: { text: firstSummary },
+                content: { text: firstContent },
+                expanded: firstExpanded,
+              },
+              {
+                heading: { text: "Knowing who your users are" },
+                summary: { text: "Understand your users and their needs" },
+                content: { text: "You need to know who your users are and what they need from your service." },
+              },
+            ]}
+          />
+        </GovukPreview>
       }
     />
   );
